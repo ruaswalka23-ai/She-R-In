@@ -9,82 +9,62 @@
   <link rel="icon" href="logo.png" type="image/png" />
   <meta name="theme-color" content="#f97316" />
   <style>
-    :root{--bg:linear-gradient(180deg,#0f172a,#0b1220);--card:#111827;--text:#e5e7eb;--muted:#94a3b8;--accent:#f97316;--soft:#1f2937}
-    *{box-sizing:border-box}
-    body{margin:0;font-family:'Cairo',system-ui,Arial,sans-serif;background:var(--bg);color:var(--text)}
-    a{color:inherit;text-decoration:none}
-    .container{max-width:1100px;margin:auto;padding:24px}
-    header{position:sticky;top:0;background:#0b1220cc;backdrop-filter:blur(8px);border-bottom:1px solid #1f2937;z-index:10}
-    .nav{display:flex;align-items:center;justify-content:space-between}
-    .brand{display:flex;gap:10px;align-items:center}
-    .logo{width:40px;height:40px;border-radius:10px;background:#111;display:inline-block;object-fit:cover;border:1px solid #1f2937}
-    .brand h1{font-size:18px;margin:0}
-    .menu{display:flex;gap:18px;align-items:center}
-    .btn{display:inline-block;padding:12px 16px;border-radius:12px;background:var(--accent);color:#04130a;font-weight:700;box-shadow:0 8px 24px #f9731630;cursor:pointer}
-    .ghost{background:#0b1220;border:1px solid #1f2937;color:var(--text)}
-    .hero{display:grid;grid-template-columns:1.2fr 1fr;gap:28px;align-items:center;padding:32px 0 8px}
-    .hero h2{font-size:34px;margin:0 0 12px}
-    .hero p{color:var(--muted);line-height:1.8;margin:6px 0 18px}
-    .card{background:var(--card);border:1px solid var(--soft);border-radius:18px;padding:18px}
-    .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    @media (max-width:900px){.hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr}}
-    .tag{display:inline-block;background:#0b1220;border:1px solid #243041;color:#cbd5e1;border-radius:999px;padding:6px 10px;font-size:12px}
-    .section{padding:24px 0}
-    .section h3{margin:0 0 14px}
-    .features li{margin:10px 0;color:var(--muted)}
-    .kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    .kpi{background:#0b1220;border:1px dashed #1f2937;border-radius:16px;padding:16px;text-align:center}
-    .kpi .num{font-size:28px;font-weight:700}
-    .product{display:flex;flex-direction:column;gap:10px}
-    .product img{width:100%;height:180px;object-fit:cover;border-radius:14px;border:1px solid #1f2937}
-    footer{margin-top:40px;border-top:1px solid #1f2937;color:#94a3b8}
-    .muted{color:var(--muted)}
-    input,textarea{width:100%;background:#0b1220;border:1px solid #1f2937;border-radius:12px;padding:12px;color:var(--text)}
-    form .row{display:grid;grid-template-columns:1fr 1fr;gap:12px}
-    @media(max-width:700px){form .row{grid-template-columns:1fr}}
-    .controls{display:flex;gap:10px;align-items:center}
-    select.lang{padding:8px 10px;border-radius:10px;background:#0b1220;border:1px solid #1f2937;color:var(--text)}
-    [data-theme="light"] select.lang{background:#ffffff;color:#0f172a;border-color:#cbd5e1}
-    .toggle{cursor:pointer}
+    :root { --bg:linear-gradient(180deg,#0f172a,#0b1220); --card:#111827; --text:#e5e7eb; --muted:#94a3b8; --accent:#f97316; --soft:#1f2937 }
+    * { box-sizing:border-box }
+    body { margin:0; font-family:'Cairo',system-ui,Arial,sans-serif; background:var(--bg); color:var(--text) }
+    a { color:inherit; text-decoration:none }
+    .container { max-width:1100px; margin:auto; padding:24px }
+    header { position:sticky; top:0; background:#0b1220cc; backdrop-filter:blur(8px); border-bottom:1px solid #1f2937; z-index:10 }
+    .nav { display:flex; align-items:center; justify-content:space-between }
+    .brand { display:flex; gap:10px; align-items:center }
+    .logo { width:40px; height:40px; border-radius:10px; background:#111; display:inline-block; object-fit:cover; border:1px solid #1f2937 }
+    .brand h1 { font-size:18px; margin:0 }
+    .menu { display:flex; gap:18px; align-items:center }
+    .btn { display:inline-block; padding:12px 16px; border-radius:12px; background:var(--accent); color:#04130a; font-weight:700; box-shadow:0 8px 24px #f9731630; cursor:pointer }
+    .ghost { background:#0b1220; border:1px solid #1f2937; color:var(--text) }
+    .hero { display:grid; grid-template-columns:1.2fr 1fr; gap:28px; align-items:center; padding:32px 0 8px }
+    .hero h2 { font-size:34px; margin:0 0 12px }
+    .hero p { color:var(--muted); line-height:1.8; margin:6px 0 18px }
+    .card { background:var(--card); border:1px solid var(--soft); border-radius:18px; padding:18px }
+    .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px }
+    @media (max-width:900px) { .hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr} }
+    .tag { display:inline-block; background:#0b1220; border:1px solid #243041; color:#cbd5e1; border-radius:999px; padding:6px 10px; font-size:12px }
+    .section { padding:24px 0 }
+    .section h3 { margin:0 0 14px }
+    .features li { margin:10px 0; color:var(--muted) }
+    .kpis { display:grid; grid-template-columns:repeat(3,1fr); gap:18px }
+    .kpi { background:#0b1220; border:1px dashed #1f2937; border-radius:16px; padding:16px; text-align:center }
+    .kpi .num { font-size:28px; font-weight:700 }
+    .product { display:flex; flex-direction:column; gap:10px }
+    .product img { width:100%; height:180px; object-fit:cover; border-radius:14px; border:1px solid #1f2937 }
+    footer { margin-top:40px; border-top:1px solid #1f2937; color:#94a3b8 }
+    .muted { color:var(--muted) }
+    input,textarea { width:100%; background:#0b1220; border:1px solid #1f2937; border-radius:12px; padding:12px; color:var(--text) }
+    form .row { display:grid; grid-template-columns:1fr 1fr; gap:12px }
+    @media(max-width:700px) { form .row { grid-template-columns:1fr } }
+    .controls { display:flex; gap:10px; align-items:center }
+    select.lang { padding:8px 10px; border-radius:10px; background:#0b1220; border:1px solid #1f2937; color:var(--text) }
+    [data-theme="light"] select.lang { background:#ffffff; color:#0f172a; border-color:#cbd5e1 }
+    .toggle { cursor:pointer }
 
     /* ثيم فاتح */
-    [data-theme="light"]{--bg:#ffffff;--card:#ffffff;--text:#0f172a;--muted:#475569;--soft:#e5e7eb}
+    [data-theme="light"] { --bg:#ffffff; --card:#ffffff; --text:#0f172a; --muted:#475569; --soft:#e5e7eb }
 
     /* بنّر موعد أقرب حاوية */
-    .banner{display:flex;align-items:center;justify-content:space-between;background:linear-gradient(90deg,#f97316,#fb923c);color:#0b1220;border-radius:18px;padding:16px 20px;box-shadow:0 10px 30px #f9731633}
-    .banner strong{font-size:22px}
-    .banner .date{font-size:26px;font-weight:800;background:rgba(255,255,255,.9);color:#0b1220;padding:6px 12px;border-radius:10px;border:1px solid #fde68a}
+    .banner { display:flex; align-items:center; justify-content:space-between; background:linear-gradient(90deg,#f97316,#fb923c); color:#0b1220; border-radius:18px; padding:16px 20px; box-shadow:0 10px 30px #f9731633 }
+    .banner strong { font-size:22px }
+    .banner .date { font-size:26px; font-weight:800; background:rgba(255,255,255,.9); color:#0b1220; padding:6px 12px; border-radius:10px; border:1px solid #fde68a }
 
     /* تبويبات دليل الطلب */
-    .tabs-header{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:12px}
-    .tab-btn{padding:8px 12px;border-radius:999px;background:#0b1220;border:1px solid var(--soft);color:var(--text);cursor:pointer}
-    [data-theme="light"] .tab-btn{background:#ffffff;color:#0f172a;border-color:#cbd5e1}
-    .tab-btn.active{background:var(--accent);color:#04130a;border-color:transparent}
-    .tab-pane{display:none}
-    .tab-pane.active{display:block}
-    .tab-actions{display:flex;gap:10px;margin:10px 0}
+    .tabs-header { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px }
+    .tab-btn { padding:8px 12px; border-radius:999px; background:#0b1220; border:1px solid var(--soft); color:var(--text); cursor:pointer }
+    [data-theme="light"] .tab-btn { background:#ffffff; color:#0f172a; border-color:#cbd5e1 }
+    .tab-btn.active { background:var(--accent); color:#04130a; border-color:transparent }
+    .tab-pane { display:none }
+    .tab-pane.active { display:block }
+    .tab-actions { display:flex; gap:10px; margin:10px 0 }
   </style>
 </head>
-  <script>
-  // تفعيل التبويبات بطريقة مضمونة (تفويض أحداث)
-  document.addEventListener('click', function(e){
-    const btn = e.target.closest('.tab-btn');
-    if(!btn) return;
-    const name = btn.dataset.tab; // "alibaba" أو "aliexpress"
-
-    // فعّل الزر المختار
-    document.querySelectorAll('#orderTabs .tab-btn')
-      .forEach(b => b.classList.toggle('active', b.dataset.tab === name));
-
-    // أظهر/اخفِ البينات
-    document.querySelectorAll('#orderTabs .tab-pane')
-      .forEach(p => p.classList.toggle('active', p.id === 'tab-' + name));
-
-    // اختيارية: حدّث الهاش بالرابط
-    history.replaceState(null, '', '#tab=' + name);
-  });
-</script>
-
 <body>
   <header>
     <div class="container nav">
@@ -111,7 +91,6 @@
 
   <main class="container">
 
-    <!-- بنّر موعد أقرب حاوية -->
     <section id="eta" class="section" style="padding-top:10px">
       <div class="banner">
         <strong id="eta_label">موعد أقرب حاوية</strong>
@@ -170,10 +149,9 @@
           <strong>AliExpress</strong>
           <span class="muted">للطلبات الصغيرة والقطع الفردية.</span>
         </div>
-      </div>
+        </div>
     </section>
 
-    <!-- START: دليل الطلب (تبويبات) -->
     <section id="guides" class="section">
       <h3 id="guides_title">كل ما تود معرفته عن علي بابا وعلي اكسبريس</h3>
 
@@ -183,13 +161,11 @@
           <button class="tab-btn" data-tab="aliexpress">AliExpress</button>
         </div>
 
-        <!-- تبويب Alibaba -->
         <div class="tab-pane active" id="tab-alibaba">
           <div class="tab-actions">
             <button class="btn ghost" type="button" id="openAlibaba">فتح في تبويب جديد</button>
           </div>
 
-          <!-- العربية -->
           <div class="lang-block" data-lang="ar">
             <h4>(أ) للطلب من علي بابا Alibaba / Made in China من خلالنا 💡</h4>
             <ol>
@@ -207,26 +183,46 @@
             </ol>
           </div>
 
-          <!-- English -->
           <div class="lang-block" data-lang="en" style="display:none">
             <h4>(A) Ordering via Alibaba / Made in China</h4>
-            <p>English guide placeholder. (We can add full translation later.)</p>
+            <p>Please follow these instructions:</p>
+            <ol>
+              <li>Alibaba is a wholesale app (for traders and business owners), not for single pieces, pay attention to the Minimum Order Quantity (MOQ). <strong>Exceptions apply to large machinery and equipment; we can ship a minimum of 1 piece.</strong></li>
+              <li>Shipping and customs fees apply to every order. Note that the final price will approximately double (1.5x) depending on weight and volume.</li>
+              <li>Many suppliers post fake prices to attract customers; please confirm with us before relying on the displayed price.</li>
+              <li>It's recommended to look for reliable suppliers, identifiable by a blue checkmark (✔️) under their name.</li>
+              <li>Prohibited items for shipping: All types of food, cosmetics, perfumes, smoking accessories, flammable materials, 18k gold-plated accessories, and counterfeit brands (bags, machines, glasses, etc.).</li>
+              <li>Send us the links, and we'll provide the total price including home delivery.</li>
+              <li>Supplier responses may take 24–48 hours; we cannot provide a final price without contacting the supplier (China).</li>
+              <li>Estimated delivery time is typically 45–60 days from the container closing date. Containers may face delays due to customs congestion.</li>
+              <li>Payment method: In person at our office (Sweifieh – Amman) after signing a contract and receiving a stamped receipt for the paid amount.</li>
+            </ol>
+            <p>Please be serious about your order; do not send requests if you are not genuinely interested to save time.</p>
           </div>
 
-          <!-- 中文 -->
           <div class="lang-block" data-lang="zh" style="display:none">
             <h4>(A) 通过 Alibaba / Made in China 下单</h4>
-            <p>中文说明占位。稍后可添加完整中文翻译。</p>
+            <p>请遵循以下说明：</p>
+            <ol>
+              <li>阿里巴巴是批发应用程序（适用于贸易商和企业主），不适用于单件购买，请注意最低起订量 (MOQ)。<strong>大型机械和设备除外；我们可以以最少 1 件起运。</strong></li>
+              <li>所有订单均需支付运费和关税。请注意，最终价格将根据重量和体积大约翻倍（约 1.5 倍）。</li>
+              <li>许多供应商会发布虚假价格以吸引客户；请在依赖显示价格之前与我们确认。</li>
+              <li>建议寻找可靠的供应商，可通过其名称下的蓝色勾选标记 (✔️) 来识别。</li>
+              <li>禁止运输的物品：所有类型的食品、化妆品、香水、烟草配件、易燃材料、18K 镀金饰品以及仿冒品牌（包袋、机器、眼镜等）。</li>
+              <li>请发送链接给我们，我们将提供包含送货上门的全部价格。</li>
+              <li>供应商回复可能需要 24-48 小时；在联系中国供应商之前，我们无法提供最终价格。</li>
+              <li>预计送达时间通常为集装箱关仓日期起的 45-60 天。集装箱可能因海关拥堵而延迟。</li>
+              <li>付款方式：在签署合同并收到已付款的盖章收据后，在我们的办公室（Sweifieh – Amman）亲自付款。</li>
+            </ol>
+            <p>请认真对待您的订单；如果您不是真心想订购，请不要发送请求，以免浪费时间。</p>
           </div>
         </div>
 
-        <!-- تبويب AliExpress -->
         <div class="tab-pane" id="tab-aliexpress">
           <div class="tab-actions">
             <button class="btn ghost" type="button" id="openAliexpress">فتح في تبويب جديد</button>
           </div>
 
-          <!-- العربية -->
           <div class="lang-block" data-lang="ar">
             <h4>(ب) للطلب من علي اكسبريس من خلالنا 💡</h4>
             <ol>
@@ -249,22 +245,54 @@
             <p><strong>الرجاء الحار:</strong> إذا لم تكن جادًا في الطلب، من فضلك لا ترسل الطلب لتوفير الوقت.</p>
           </div>
 
-          <!-- English -->
           <div class="lang-block" data-lang="en" style="display:none">
             <h4>(B) Ordering via AliExpress</h4>
-            <p>English guide placeholder. (We can add full translation later.)</p>
+            <p>Please follow these instructions:</p>
+            <ol>
+              <li>Download the AliExpress app.</li>
+              <li>Change the country to Saudi Arabia.</li>
+              <li>Change the currency to USD.</li>
+              <li>Check the desired product.</li>
+              <li>Check the product price.</li>
+              <li>Shipping fees (if any, listed below the product) will be added to the item price + <strong>a tax of up to 6 JOD</strong>.<br>
+                <em>Note: It's preferable to choose products shipped via Choice, as they are tax-exempt.</em>
+              </li>
+              <li>Any item with a "welcome price" is not applicable; use its old price (welcome prices are for new accounts only).</li>
+              <li>A 3 JOD "consolidation" fee is added when ordering more than one item.</li>
+              <li>Minimum order from AliExpress is 20 JOD.</li>
+              <li>Delivery to all governorates is 3 JOD.</li>
+              <li>Delivery time is up to 28 days from the order date.</li>
+              <li>A deposit of half the value is required before ordering, with the remaining balance due upon receipt.</li>
+              <li>After reading instructions, please send links for the final price including delivery.</li>
+            </ol>
+            <p><strong>Please be serious:</strong> If you are not serious about ordering, please do not submit your request to save time.</p>
           </div>
 
-          <!-- 中文 -->
           <div class="lang-block" data-lang="zh" style="display:none">
             <h4>(B) 通过 AliExpress 下单</h4>
-            <p>中文说明占位。稍后可添加完整中文翻译。</p>
+            <p>请遵循以下说明：</p>
+            <ol>
+              <li>下载 AliExpress 应用程序。</li>
+              <li>将国家更改为沙特阿拉伯。</li>
+              <li>将货币更改为美元。</li>
+              <li>查看所需产品。</li>
+              <li>查看产品价格。</li>
+              <li>运费（如果产品下方有列出）将添加到商品价格 + <strong>最高 6 第纳尔的税费</strong>。<br>
+                <em>注意：建议选择通过 Choice 运输的产品，因为它们免税。</em>
+              </li>
+              <li>任何带有“欢迎价格”的商品均不适用；请使用其旧价格（欢迎价格仅适用于新账户）。</li>
+              <li>订购多件商品时，将收取 3 第纳尔的“拼单”费用。</li>
+              <li>来自 AliExpress 的最低订单金额为 20 约旦第纳尔。</li>
+              <li>送货至所有省份为 3 第纳尔。</li>
+              <li>交货时间为订单日期起的 28 天内。</li>
+              <li>订购前需支付一半价值的定金，余款在收到货时支付。</li>
+              <li>阅读说明后，请发送链接以获取包含送货费用的最终价格。</li>
+            </ol>
+            <p><strong>请认真对待：</strong>如果您不是真心想订购，请不要提交您的请求，以免浪费时间。</p>
           </div>
         </div>
       </div>
     </section>
-    <!-- END: دليل الطلب -->
-
     <section id="contact" class="section">
       <h3 id="contact_title">اتصل بنا</h3>
       <div class="grid" style="grid-template-columns:1.2fr 1fr">
@@ -333,7 +361,7 @@
           platforms_title:'المنصّات التي نغطيها', guides_title:'كل ما تود معرفته عن علي بابا وعلي اكسبريس',
           contact_title:'اتصل بنا', kpi_title:'أرقام سريعة',
           eta_label:'موعد أقرب حاوية',
-          contact_addr:'العنوان: AVT, Rae\\'d Khalaf Complex, Sweifieh – Amman',
+          contact_addr:'العنوان: AVT, Rae\'d Khalaf Complex, Sweifieh – Amman',
           contact_hours:'ساعات العمل: الأحد–الخميس 09:00–21:00 • الجمعة–السبت: مغلق',
           form_send:'إرسال', form_whatsapp:'مراسلة عبر واتساب',
           ph_name:'الاسم', ph_whatsapp:'رقم واتساب', ph_msg:'محتوى الطلب',
@@ -346,11 +374,11 @@
           cta_book:'Book Now', cta_services:'Explore Services',
           about_title:'Our Policy', about_text:'We commit to safety and transparency: official receipt for the deposit and proof of purchase, plus full order tracking. Typical arrival: 45–60 days from container closing.',
           services_title:'Our Services',
-          services_list:'<li><strong>Import via Alibaba:</strong> Sourcing, negotiation, and supplier checks.</li><li><strong>Made in China:</strong> A strong alternative when items aren\\'t on Alibaba.</li><li><strong>AliExpress:</strong> For single items and small quantities.</li><li><strong>Other platforms:</strong> TMALL, TAOBAO, and JD (Jingdong) covered.</li>',
+          services_list:'<li><strong>Import via Alibaba:</strong> Sourcing, negotiation, and supplier checks.</li><li><strong>Made in China:</strong> A strong alternative when items aren\'t on Alibaba.</li><li><strong>AliExpress:</strong> For single items and small quantities.</li><li><strong>Other platforms:</strong> TMALL, TAOBAO, and JD (Jingdong) covered.</li>',
           platforms_title:'Platforms We Cover', guides_title:'Everything you need to know about Alibaba & AliExpress',
           contact_title:'Contact Us', kpi_title:'Quick Stats',
           eta_label:'Next container ETA',
-          contact_addr:'Address: AVT, Rae\\'d Khalaf Complex, Sweifieh – Amman',
+          contact_addr:'Address: AVT, Rae\'d Khalaf Complex, Sweifieh – Amman',
           contact_hours:'Hours: Sun–Thu 09:00–21:00 • Fri–Sat: Closed',
           form_send:'Send', form_whatsapp:'WhatsApp Us',
           ph_name:'Name', ph_whatsapp:'WhatsApp number', ph_msg:'Order details',
@@ -367,7 +395,7 @@
           platforms_title:'覆盖平台', guides_title:'关于阿里巴巴与速卖通的一切',
           contact_title:'联系我们', kpi_title:'数据速览',
           eta_label:'最近一班集装箱',
-          contact_addr:'地址：AVT, Rae\\'d Khalaf Complex, Sweifieh – 安曼',
+          contact_addr:'地址：AVT, Rae\'d Khalaf Complex, Sweifieh – 安曼',
           contact_hours:'工作时间：周日–周四 09:00–21:00 • 周五/周六休息',
           form_send:'发送', form_whatsapp:'通过 WhatsApp 联系',
           ph_name:'姓名', ph_whatsapp:'WhatsApp 号码', ph_msg:'订单详情',
