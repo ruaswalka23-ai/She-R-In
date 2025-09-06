@@ -10,24 +10,28 @@
   <meta name="theme-color" content="#f97316" />
   <style>
     :root { --bg:linear-gradient(180deg,#0f172a,#0b1220); --card:#111827; --text:#e5e7eb; --muted:#94a3b8; --accent:#f97316; --soft:#1f2937 }
+    [data-theme="light"] { --bg:linear-gradient(180deg,#f1f5f9,#e2e8f0); --card:#ffffff; --text:#0f172a; --muted:#475569; --accent:#f97316; --soft:#f8fafc }
     * { box-sizing:border-box }
-    body { margin:0; font-family:'Cairo',system-ui,Arial,sans-serif; background:var(--bg); color:var(--text) }
+    body { margin:0; font-family:'Cairo',system-ui,Arial,sans-serif; background:var(--bg); color:var(--text); transition: background .3s ease, color .3s ease; }
     a { color:inherit; text-decoration:none }
     .container { max-width:1100px; margin:auto; padding:24px }
     header { position:sticky; top:0; background:#0b1220cc; backdrop-filter:blur(8px); border-bottom:1px solid #1f2937; z-index:10 }
+    [data-theme="light"] header { background:#e2e8f0cc; border-bottom:1px solid #cbd5e1; }
     .nav { display:flex; align-items:center; justify-content:space-between; flex-wrap: wrap; padding: 12px 0; }
     .brand { display:flex; gap:10px; align-items:center }
     .logo { width:40px; height:40px; border-radius:10px; background:#111; display:inline-block; object-fit:cover; border:1px solid #1f2937 }
+    [data-theme="light"] .logo { background:#ccc; border:1px solid #cbd5e1; }
     .brand h1 { font-size:18px; margin:0 }
     .menu { display:flex; gap:18px; align-items:center }
     .btn { display:inline-block; padding:12px 16px; border-radius:12px; background:var(--accent); color:#04130a; font-weight:700; box-shadow:0 8px 24px #f9731630; cursor:pointer; transition:all .3s ease }
     .btn:hover { transform: translateY(-2px); box-shadow:0 12px 30px #f9731640; }
     .ghost { background:#0b1220; border:1px solid #1f2937; color:var(--text) }
+    [data-theme="light"] .ghost { background:#f1f5f9; border:1px solid #cbd5e1; color:var(--text) }
     .ghost:hover { background:var(--soft); }
     .hero { display:grid; grid-template-columns:1.2fr 1fr; gap:28px; align-items:center; padding:32px 0 8px }
     .hero h2 { font-size:34px; margin:0 0 12px }
     .hero p { color:var(--muted); line-height:1.8; margin:6px 0 18px }
-    .card { background:var(--card); border:1px solid var(--soft); border-radius:18px; padding:18px; box-shadow:0 4px 12px rgba(0,0,0,.1); }
+    .card { background:var(--card); border:1px solid var(--soft); border-radius:18px; padding:18px; box-shadow:0 4px 12px rgba(0,0,0,.1); transition:background .3s ease, border-color .3s ease; }
     .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px }
     @media (max-width:900px) {
       .hero{grid-template-columns:1fr}
@@ -36,6 +40,7 @@
       .nav .menu a, .nav .controls { width: 100%; }
     }
     .tag { display:inline-block; background:#0b1220; border:1px solid #243041; color:#cbd5e1; border-radius:999px; padding:6px 10px; font-size:12px }
+    [data-theme="light"] .tag { background:#f8fafc; border:1px solid #cbd5e1; color:#475569; }
     .section { padding:24px 0 }
     .section h3 { margin:0 0 14px; font-size:24px; color:var(--accent); }
     .features li { margin:10px 0; color:var(--muted); line-height:1.8 }
@@ -45,6 +50,7 @@
     .product { display:flex; flex-direction:column; gap:10px; text-align:center; }
     .product img { width:100%; object-fit:cover; border-radius:14px; border:1px solid var(--soft); aspect-ratio: 16/9; }
     footer { margin-top:40px; border-top:1px solid #1f2937; color:#94a3b8; padding:18px 0 }
+    [data-theme="light"] footer { border-top:1px solid #cbd5e1; color:#475569; }
     footer .container { display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; }
     .muted { color:var(--muted) }
     input,textarea { width:100%; background:var(--soft); border:1px solid var(--soft); border-radius:12px; padding:12px; color:var(--text); margin-bottom: 10px; }
@@ -53,7 +59,7 @@
     @media(max-width:700px) { form .row { grid-template-columns:1fr } }
     .controls { display:flex; gap:10px; align-items:center; flex-wrap: wrap;}
     select.lang { padding:12px 10px; border-radius:10px; background:var(--soft); border:1px solid var(--soft); color:var(--text); appearance: none; background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%2394a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpolyline points="6 9 12 15 18 9"%3E%3C/polyline%3E%3C/svg%3E'); background-repeat: no-repeat; background-position: calc(100% - 10px) center; padding-right: 30px; }
-    [data-theme="light"] select.lang { background:#ffffff; color:#0f172a; border-color:#cbd5e1 }
+    [data-theme="light"] select.lang { background:#ffffff; color:#0f172a; border-color:#cbd5e1; background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%23475569" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpolyline points="6 9 12 15 18 9"%3E%3C/polyline%3E%3C/svg%3E'); }
     .toggle { cursor:pointer; border:1px solid var(--soft); background: var(--soft); display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 12px; }
     .toggle:hover { background: var(--card); }
     .banner { display:flex; align-items:center; justify-content:space-between; background:linear-gradient(90deg,#f97316,#fb923c); color:#0b1220; border-radius:18px; padding:16px 20px; box-shadow:0 10px 30px #f9731633; flex-wrap: wrap; gap: 10px; }
@@ -143,19 +149,17 @@
 
     <section id="services" class="section">
       <h3 id="services_title">خدماتنا</h3>
-
-      <div class="card" style="margin-bottom: 24px;">
-          <h4 style="font-size: 1.25rem; color: var(--accent); margin-top: 0;">كل ما يهمك عن الشحن معنا</h4>
-          <ul class="features">
-              <li>نقوم بالشحن من **أي مكان في الصين** إلى الأردن.</li>
-              <li>نقوم باستلام الشحنات من المورّدين في الصين، ودمجها مع بعضها في حاويات شحن.</li>
-              <li>سواء كان لديك شحنة صغيرة أو كبيرة، نقوم بتجهيزها للشحن البحري أو الجوي.</li>
-              <li>نحن نتكفل بجميع إجراءات التخليص الجمركي في الأردن، ونقوم بتسليم الشحنة في عنوانك.</li>
-              <li>نضمن التوصيل إلى **جميع المحافظات** في الأردن.</li>
-          </ul>
-      </div>
-
       <div class="grid">
+        <div class="card">
+            <h4 style="font-size: 1.25rem; color: var(--accent); margin-top: 0;">كل ما يهمك عن الشحن معنا</h4>
+            <ul class="features">
+                <li>نقوم بالشحن من **أي مكان في الصين** إلى الأردن.</li>
+                <li>نقوم باستلام الشحنات من المورّدين في الصين، ودمجها مع بعضها في حاويات شحن.</li>
+                <li>سواء كان لديك شحنة صغيرة أو كبيرة، نقوم بتجهيزها للشحن البحري أو الجوي.</li>
+                <li>نحن نتكفل بجميع إجراءات التخليص الجمركي في الأردن، ونقوم بتسليم الشحنة في عنوانك.</li>
+                <li>نضمن التوصيل إلى **جميع المحافظات** في الأردن.</li>
+            </ul>
+        </div>
         <div class="card">
             <h4 style="font-size: 1.25rem; color: var(--accent); margin-top: 0;">خبراء اختيار المنتج</h4>
             <ul class="features">
@@ -172,15 +176,16 @@
                 <li>يمكنك **تتبع طلبك** في أي وقت من خلال فريقنا المختص.</li>
             </ul>
         </div>
-        <div class="card">
-            <h4 style="font-size: 1.25rem; color: var(--accent); margin-top: 0;">منصّات الشراء</h4>
-            <ul class="features">
-                <li><strong>الاستيراد من Alibaba:</strong> البحث والتفاوض وفحص المورّدين.</li>
-                <li><strong>Made in China:</strong> بديل قوي عند عدم توفّر المنتج في علي بابا.</li>
-                <li><strong>AliExpress:</strong> لطلبات القطع الفردية أو الكميات الصغيرة.</li>
-                <li><strong>منصّات أخرى:</strong> TMALL و TAOBAO و JD (Jingdong) ضمن تغطيتنا.</li>
-            </ul>
-        </div>
+      </div>
+    </section>
+    
+    <section id="local-platforms" class="section">
+      <h3 id="local_platforms_title">استيرادك من المنصّات الصينية المحلية</h3>
+      <div class="card">
+        <p>لا يقتصر عملنا على المنصّات الدولية مثل علي بابا وعلي إكسبريس، بل نمتد إلى السوق الصينية المحلية. نساعدك في الشراء من كبار الموردين الصينيين عبر منصّات مثل **Taobao (تاوباو)** و**1688** و**JD.com (جي دي دوت كوم)**، حيث تجد أسعاراً لا مثيل لها للمنتجات التي قد لا تكون متاحة في المنصّات الدولية.</p>
+        <p>
+            **الثقة والخبرة في التعامل:** نحن نضمن لك التعامل مع **جميع الموردين الصينيين الموثوقين** أينما كانوا. يقوم فريقنا بفحص الموردين والتأكد من موثوقيتهم قبل إتمام أي عملية شراء. خبرتنا الطويلة في السوق الصينية تضمن لك أقصى درجات الأمان والشفافية، لتحصل على شحنتك كما تريد، وبالسعر الذي يناسبك.
+        </p>
       </div>
     </section>
 
@@ -419,8 +424,7 @@
           experts_list: '<li>من خبرتنا الواسعة، نساعدك في **اختيار أفضل المنتجات** من بين مئات الموردين.</li><li>نضمن لك تحقيق الجودة المطلوبة لمنتجك، ونتأكد من أن السعر يناسب ميزانيتك.</li><li>فريقنا يقوم بالبحث والتفاوض مع الموردين نيابة عنك.</li>',
           safety_header: 'الأمان والشفافية',
           safety_list: '<li>يتم تسليمك **سند قبض** رسمي بقيمة الدفعة الأولى التي قمت بدفعها.</li><li>نقدم لك **إثباتات شراء** كاملة لضمان الشفافية التامة.</li><li>يمكنك **تتبع طلبك** في أي وقت من خلال فريقنا المختص.</li>',
-          platforms_header: 'منصّات الشراء',
-          platforms_list:'<li><strong>الاستيراد من Alibaba:</strong> البحث والتفاوض وفحص المورّدين.</li><li><strong>Made in China:</strong> بديل قوي عند عدم توفّر المنتج في علي بابا.</li><li><strong>AliExpress:</strong> لطلبات القطع الفردية أو الكميات الصغيرة.</li><li><strong>منصّات أخرى:</strong> TMALL و TAOBAO و JD (Jingdong) ضمن تغطيتنا.</li>',
+          local_platforms_title: 'استيرادك من المنصّات الصينية المحلية',
           platforms_title:'المنصّات التي نغطيها', guides_title:'كل ما تود معرفته عن علي بابا وعلي اكسبريس',
           contact_title:'اتصل بنا', kpi_title:'أرقام سريعة',
           eta_label:'موعد أقرب حاوية',
@@ -448,8 +452,7 @@
           experts_list: '<li>With our extensive experience, we help you **select the best products** from hundreds of suppliers.</li><li>We ensure the required quality for your product and make sure the price fits your budget.</li><li>Our team handles sourcing and negotiating with suppliers on your behalf.</li>',
           safety_header: 'Safety and Transparency',
           safety_list: '<li>You will receive an official **receipt** for the initial deposit you paid.</li><li>We provide complete **proof of purchase** to ensure full transparency.</li><li>You can **track your order** at any time through our dedicated team.</li>',
-          platforms_header: 'Sourcing Platforms',
-          platforms_list:'<li><strong>Import via Alibaba:</strong> Sourcing, negotiation, and supplier checks.</li><li><strong>Made in China:</strong> A strong alternative when items aren\'t on Alibaba.</li><li><strong>AliExpress:</strong> For single items and small quantities.</li><li><strong>Other platforms:</strong> TMALL, TAOBAO, and JD (Jingdong) covered.</li>',
+          local_platforms_title: 'Your Imports from Local Chinese Platforms',
           platforms_title:'Platforms We Cover', guides_title:'Everything you need to know about Alibaba & AliExpress',
           contact_title:'Contact Us', kpi_title:'Quick Stats',
           eta_label:'Next container ETA',
@@ -477,8 +480,7 @@
           experts_list: '<li>凭借我们丰富的经验，我们帮助您从数百家供应商中**选择最好的产品**。</li><li>我们确保您产品所需的质量，并确保价格符合您的预算。</li><li>我们的团队代表您处理采购和与供应商的谈判。</li>',
           safety_header: '安全与透明',
           safety_list: '<li>您将收到您所支付的初始押金的官方**收据**。</li><li>我们提供完整的**采购证明**以确保完全透明。</li><li>您可以随时通过我们的专业团队**追踪您的订单**。</li>',
-          platforms_header: '采购平台',
-          platforms_list:'<li><strong>通过阿里巴巴进口：</strong> 选品、议价、供应商核查。</li><li><strong>Made in China：</strong> 当阿里巴巴无货时的有力替代。</li><li><strong>速卖通：</strong> 单件或小批量采购。</li><li><strong>其它平台：</strong> 覆盖 TMALL、淘宝、京东。</li>',
+          local_platforms_title: '您从中国本地平台的进口',
           platforms_title:'覆盖平台', guides_title:'关于阿里巴巴与速卖通的一切',
           contact_title:'联系我们', kpi_title:'数据速览',
           eta_label:'最近一班集装箱',
@@ -514,12 +516,12 @@
         state.theme = t; localStorage.setItem(themeKey, t);
         if(t === 'light'){ 
           root.setAttribute('data-theme','light');
-          sunIcon.style.display = 'none';
-          moonIcon.style.display = 'inline';
+          moonIcon.style.display = 'none';
+          sunIcon.style.display = 'inline';
         } else {
           root.removeAttribute('data-theme');
-          sunIcon.style.display = 'inline';
-          moonIcon.style.display = 'none';
+          sunIcon.style.display = 'none';
+          moonIcon.style.display = 'inline';
         }
       }
 
@@ -534,7 +536,7 @@
             'cta_book': 'cta_book', 'cta_services': 'cta_services',
             'about_title': 'about_title', 'services_title': 'services_title', 'platforms_title': 'platforms_title',
             'guides_title': 'guides_title', 'contact_title': 'contact_title', 'kpi_title': 'kpi_title',
-            'eta_label': 'eta_label',
+            'eta_label': 'eta_label', 'local_platforms_title': 'local_platforms_title',
             'contact_addr': 'contact_addr', 'contact_hours': 'contact_hours',
             'form_send': 'form_send', 'form_whatsapp': 'form_whatsapp',
             'calculator_title': 'calculator_title',
@@ -558,17 +560,14 @@
         document.getElementById('result').dataset.suffix = TR[l].calc_result_suffix;
 
         // New service sections
-        document.querySelector('#services .card h4:first-of-type').textContent = TR[l].shipping_header;
-        document.querySelector('#services .card:first-of-type ul').innerHTML = TR[l].shipping_list;
+        document.querySelector('#services .grid .card:nth-of-type(1) h4').textContent = TR[l].shipping_header;
+        document.querySelector('#services .grid .card:nth-of-type(1) ul').innerHTML = TR[l].shipping_list;
         
-        document.querySelector('#services .grid .card:nth-of-type(1) h4').textContent = TR[l].experts_header;
-        document.querySelector('#services .grid .card:nth-of-type(1) ul').innerHTML = TR[l].experts_list;
+        document.querySelector('#services .grid .card:nth-of-type(2) h4').textContent = TR[l].experts_header;
+        document.querySelector('#services .grid .card:nth-of-type(2) ul').innerHTML = TR[l].experts_list;
         
-        document.querySelector('#services .grid .card:nth-of-type(2) h4').textContent = TR[l].safety_header;
-        document.querySelector('#services .grid .card:nth-of-type(2) ul').innerHTML = TR[l].safety_list;
-
-        document.querySelector('#services .grid .card:nth-of-type(3) h4').textContent = TR[l].platforms_header;
-        document.querySelector('#services .grid .card:nth-of-type(3) ul').innerHTML = TR[l].platforms_list;
+        document.querySelector('#services .grid .card:nth-of-type(3) h4').textContent = TR[l].safety_header;
+        document.querySelector('#services .grid .card:nth-of-type(3) ul').innerHTML = TR[l].safety_list;
 
         document.querySelectorAll('#guides .lang-block').forEach(div=>{
           div.style.display = (div.dataset.lang === l ? 'block' : 'none');
