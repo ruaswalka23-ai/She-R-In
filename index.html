@@ -15,7 +15,7 @@
     a { color:inherit; text-decoration:none }
     .container { max-width:1100px; margin:auto; padding:24px }
     header { position:sticky; top:0; background:#0b1220cc; backdrop-filter:blur(8px); border-bottom:1px solid #1f2937; z-index:10 }
-    .nav { display:flex; align-items:center; justify-content:space-between; flex-wrap: wrap; /* Responsive nav */ padding: 12px 0; }
+    .nav { display:flex; align-items:center; justify-content:space-between; flex-wrap: wrap; padding: 12px 0; }
     .brand { display:flex; gap:10px; align-items:center }
     .logo { width:40px; height:40px; border-radius:10px; background:#111; display:inline-block; object-fit:cover; border:1px solid #1f2937 }
     .brand h1 { font-size:18px; margin:0 }
@@ -32,7 +32,7 @@
     @media (max-width:900px) {
       .hero{grid-template-columns:1fr}
       .grid{grid-template-columns:1fr}
-      .nav .menu { flex-direction: column; gap: 10px; width: 100%; margin-top: 15px; align-items: flex-start;} /* Stack menu items on smaller screens */
+      .nav .menu { flex-direction: column; gap: 10px; width: 100%; margin-top: 15px; align-items: flex-start;}
       .nav .menu a, .nav .controls { width: 100%; }
     }
     .tag { display:inline-block; background:#0b1220; border:1px solid #243041; color:#cbd5e1; border-radius:999px; padding:6px 10px; font-size:12px }
@@ -43,25 +43,22 @@
     .kpi { background:var(--soft); border:1px dashed var(--soft); border-radius:16px; padding:16px; text-align:center }
     .kpi .num { font-size:28px; font-weight:700; color:var(--accent); }
     .product { display:flex; flex-direction:column; gap:10px; text-align:center; }
-    .product img { width:100%; /* height:180px; */ object-fit:cover; border-radius:14px; border:1px solid var(--soft); aspect-ratio: 16/9; /* Maintain aspect ratio */ }
+    .product img { width:100%; object-fit:cover; border-radius:14px; border:1px solid var(--soft); aspect-ratio: 16/9; }
     footer { margin-top:40px; border-top:1px solid #1f2937; color:#94a3b8; padding:18px 0 }
     footer .container { display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; }
     .muted { color:var(--muted) }
-    input,textarea { width:100%; background:var(--soft); border:1px solid var(--soft); border-radius:12px; padding:12px; color:var(--text); margin-bottom: 10px; /* Added margin for spacing */ }
+    input,textarea { width:100%; background:var(--soft); border:1px solid var(--soft); border-radius:12px; padding:12px; color:var(--text); margin-bottom: 10px; }
     textarea { resize:vertical; }
     form .row { display:grid; grid-template-columns:1fr 1fr; gap:12px }
     @media(max-width:700px) { form .row { grid-template-columns:1fr } }
-    .controls { display:flex; gap:10px; align-items:center; flex-wrap: wrap;} /* Allow controls to wrap */
-    select.lang { padding:12px 10px; border-radius:10px; background:var(--soft); border:1px solid var(--soft); color:var(--text); appearance: none; /* Hide default arrow */ background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%2394a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpolyline points="6 9 12 15 18 9"%3E%3C/polyline%3E%3C/svg%3E'); background-repeat: no-repeat; background-position: calc(100% - 10px) center; padding-right: 30px; }
+    .controls { display:flex; gap:10px; align-items:center; flex-wrap: wrap;}
+    select.lang { padding:12px 10px; border-radius:10px; background:var(--soft); border:1px solid var(--soft); color:var(--text); appearance: none; background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%2394a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpolyline points="6 9 12 15 18 9"%3E%3C/polyline%3E%3C/svg%3E'); background-repeat: no-repeat; background-position: calc(100% - 10px) center; padding-right: 30px; }
     [data-theme="light"] select.lang { background:#ffffff; color:#0f172a; border-color:#cbd5e1 }
-    .toggle { cursor:pointer; border:1px solid var(--soft); background: var(--soft); } /* Style for toggle button */
+    .toggle { cursor:pointer; border:1px solid var(--soft); background: var(--soft); display: flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 12px; }
     .toggle:hover { background: var(--card); }
-    /* بنّر موعد أقرب حاوية */
     .banner { display:flex; align-items:center; justify-content:space-between; background:linear-gradient(90deg,#f97316,#fb923c); color:#0b1220; border-radius:18px; padding:16px 20px; box-shadow:0 10px 30px #f9731633; flex-wrap: wrap; gap: 10px; }
     .banner strong { font-size:22px }
     .banner .date { font-size:26px; font-weight:800; background:rgba(255,255,255,.9); color:#0b1220; padding:6px 12px; border-radius:10px; border:1px solid #fde68a }
-
-    /* تبويبات دليل الطلب */
     .tabs-header { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px }
     .tab-btn { padding:8px 12px; border-radius:999px; background:var(--soft); border:1px solid var(--soft); color:var(--text); cursor:pointer; transition: all .3s ease; }
     [data-theme="light"] .tab-btn { background:#ffffff; color:#0f172a; border-color:#cbd5e1 }
@@ -69,54 +66,14 @@
     .tab-pane { display:none }
     .tab-pane.active { display:block }
     .tab-actions { display:flex; gap:10px; margin:10px 0; flex-wrap: wrap; }
-
-    /* حاسبة السعر */
-    .calculator { max-width: 400px; margin: 20px auto; padding: 20px; border: 2px solid var(--accent); border-radius: 10px; background-color: var(--card); box-shadow: 0 8px 24px rgba(40, 167, 69, 0.2); } /* Adjusted for accent color */
+    .calculator { max-width: 400px; margin: 20px auto; padding: 20px; border: 2px solid var(--accent); border-radius: 10px; background-color: var(--card); box-shadow: 0 8px 24px rgba(40, 167, 69, 0.2); }
     .calculator h2 { text-align: center; color: var(--accent); margin-bottom: 20px; font-size: 24px; }
     .calculator label { display: block; margin-bottom: 5px; color: var(--muted); font-weight: 500; }
-    .calculator input[type="number"],
-    .calculator input[type="text"] { /* Added text type in case of future use */
-      width: 100%;
-      margin-bottom: 15px; /* Increased spacing */
-      padding: 12px;
-      border: 1px solid var(--soft); /* Consistent border */
-      border-radius: 10px;
-      background-color: var(--soft); /* Match other inputs */
-      color: var(--text);
-      font-size: 16px;
-    }
-    .calculator input[type="number"]::placeholder,
-    .calculator input[type="text"]::placeholder {
-      color: var(--muted);
-    }
-    .calculator button {
-      width: 100%;
-      padding: 12px;
-      background-color: var(--accent); /* Accent color for button */
-      color: #04130a; /* Dark text on bright button */
-      border: none;
-      border-radius: 10px;
-      font-size: 18px;
-      font-weight: 700;
-      cursor: pointer;
-      transition: all .3s ease;
-      box-shadow: 0 6px 18px rgba(249, 115, 22, 0.3);
-    }
-    .calculator button:hover {
-      background-color: #e6640e; /* Slightly darker on hover */
-      transform: translateY(-2px);
-      box-shadow: 0 10px 24px rgba(249, 115, 22, 0.4);
-    }
-    .calculator h3 {
-      text-align: center;
-      margin-top: 20px;
-      font-size: 20px;
-      color: var(--accent); /* Accent color for result */
-      border-top: 1px dashed var(--soft); /* Separator */
-      padding-top: 15px;
-    }
-
-    /* Responsive adjustments for calculator */
+    .calculator input[type="number"],.calculator input[type="text"] { width: 100%; margin-bottom: 15px; padding: 12px; border: 1px solid var(--soft); border-radius: 10px; background-color: var(--soft); color: var(--text); font-size: 16px; }
+    .calculator input[type="number"]::placeholder,.calculator input[type="text"]::placeholder { color: var(--muted); }
+    .calculator button { width: 100%; padding: 12px; background-color: var(--accent); color: #04130a; border: none; border-radius: 10px; font-size: 18px; font-weight: 700; cursor: pointer; transition: all .3s ease; box-shadow: 0 6px 18px rgba(249, 115, 22, 0.3); }
+    .calculator button:hover { background-color: #e6640e; transform: translateY(-2px); box-shadow: 0 10px 24px rgba(249, 115, 22, 0.4); }
+    .calculator h3 { text-align: center; margin-top: 20px; font-size: 20px; color: var(--accent); border-top: 1px dashed var(--soft); padding-top: 15px; }
     @media (max-width: 480px) {
       .calculator { padding: 15px; }
       .calculator h2 { font-size: 20px; }
@@ -138,7 +95,10 @@
         <a id="nav_platforms" href="#products">المنصّات</a>
         <a id="nav_contact" href="#contact" class="btn">اتصل بنا</a>
         <div class="controls">
-          <button id="themeToggle" class="btn ghost toggle" type="button">الوضع الداكن</button>
+          <button id="themeToggle" class="btn ghost toggle" type="button" aria-label="Toggle light/dark mode">
+            <svg id="moon-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-moon"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path></svg>
+            <svg id="sun-icon" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun" style="display:none;"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
+          </button>
           <select id="langSelect" class="lang" aria-label="language">
             <option value="ar">العربية 🇯🇴</option>
             <option value="en">English 🇬🇧</option>
@@ -163,7 +123,7 @@
         <span id="hero_tag" class="tag">ابحث، قارن، اختر.. بكل سهولة</span>
         <h2 id="hero_title">هي بوابة دخولك إلى السوق الصينية</h2>
         <p id="hero_desc">نقدّم خدمات شحن شاملة: البحث عن المنتجات، المقارنة بين المورّدين، الإشراف على الشراء، التخليص الجمركي، والشحن إلى أي مكان في العالم—بحلول مخصّصة تناسب مشروعك.</p>
-        <div style="display:flex;gap:10px;margin-top:8px; flex-wrap: wrap;"> /* Added flex-wrap */
+        <div style="display:flex;gap:10px;margin-top:8px; flex-wrap: wrap;">
           <a id="cta_book" class="btn" href="#contact">احجز الآن</a>
           <a id="cta_services" class="btn ghost" href="#services">تعرّف على الخدمات</a>
         </div>
@@ -183,12 +143,45 @@
 
     <section id="services" class="section">
       <h3 id="services_title">خدماتنا</h3>
-      <ul id="services_list" class="features">
-        <li><strong>الاستيراد من Alibaba:</strong> البحث والتفاوض وفحص المورّدين.</li>
-        <li><strong>Made in China:</strong> بديل قوي عند عدم توفّر المنتج في علي بابا.</li>
-        <li><strong>AliExpress:</strong> لطلبات القطع الفردية أو الكميات الصغيرة.</li>
-        <li><strong>منصّات أخرى:</strong> TMALL و TAOBAO و JD (Jingdong) ضمن تغطيتنا.</li>
-      </ul>
+
+      <div class="card" style="margin-bottom: 24px;">
+          <h4 style="font-size: 1.25rem; color: var(--accent); margin-top: 0;">كل ما يهمك عن الشحن معنا</h4>
+          <ul class="features">
+              <li>نقوم بالشحن من **أي مكان في الصين** إلى الأردن.</li>
+              <li>نقوم باستلام الشحنات من المورّدين في الصين، ودمجها مع بعضها في حاويات شحن.</li>
+              <li>سواء كان لديك شحنة صغيرة أو كبيرة، نقوم بتجهيزها للشحن البحري أو الجوي.</li>
+              <li>نحن نتكفل بجميع إجراءات التخليص الجمركي في الأردن، ونقوم بتسليم الشحنة في عنوانك.</li>
+              <li>نضمن التوصيل إلى **جميع المحافظات** في الأردن.</li>
+          </ul>
+      </div>
+
+      <div class="grid">
+        <div class="card">
+            <h4 style="font-size: 1.25rem; color: var(--accent); margin-top: 0;">خبراء اختيار المنتج</h4>
+            <ul class="features">
+                <li>من خبرتنا الواسعة، نساعدك في **اختيار أفضل المنتجات** من بين مئات الموردين.</li>
+                <li>نضمن لك تحقيق الجودة المطلوبة لمنتجك، ونتأكد من أن السعر يناسب ميزانيتك.</li>
+                <li>فريقنا يقوم بالبحث والتفاوض مع الموردين نيابة عنك.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h4 style="font-size: 1.25rem; color: var(--accent); margin-top: 0;">الأمان والشفافية</h4>
+            <ul class="features">
+                <li>يتم تسليمك **سند قبض** رسمي بقيمة الدفعة الأولى التي قمت بدفعها.</li>
+                <li>نقدم لك **إثباتات شراء** كاملة لضمان الشفافية التامة.</li>
+                <li>يمكنك **تتبع طلبك** في أي وقت من خلال فريقنا المختص.</li>
+            </ul>
+        </div>
+        <div class="card">
+            <h4 style="font-size: 1.25rem; color: var(--accent); margin-top: 0;">منصّات الشراء</h4>
+            <ul class="features">
+                <li><strong>الاستيراد من Alibaba:</strong> البحث والتفاوض وفحص المورّدين.</li>
+                <li><strong>Made in China:</strong> بديل قوي عند عدم توفّر المنتج في علي بابا.</li>
+                <li><strong>AliExpress:</strong> لطلبات القطع الفردية أو الكميات الصغيرة.</li>
+                <li><strong>منصّات أخرى:</strong> TMALL و TAOBAO و JD (Jingdong) ضمن تغطيتنا.</li>
+            </ul>
+        </div>
+      </div>
     </section>
 
     <section id="products" class="section">
@@ -214,17 +207,13 @@
 
     <section id="guides" class="section">
       <h3 id="guides_title">كل ما تود معرفته عن علي بابا وعلي اكسبريس</h3>
-
       <div id="orderTabs" class="card">
         <div class="tabs-header">
           <button class="tab-btn active" data-tab="alibaba">Alibaba / Made in China</button>
           <button class="tab-btn" data-tab="aliexpress">AliExpress</button>
         </div>
-
         <div class="tab-pane active" id="tab-alibaba">
-          <div class="tab-actions">
-          </div>
-
+          <div class="tab-actions"></div>
           <div class="lang-block" data-lang="ar">
             <h4>(أ) للطلب من علي بابا Alibaba / Made in China من خلالنا 💡</h4>
             <ol>
@@ -241,7 +230,6 @@
               <li>طريقة الدفع: وجاهيًا داخل مقر الشركة (الصويفية – عمّان) بعد توقيع عقد واستلام وصل قبض رسمي.</li>
             </ol>
           </div>
-
           <div class="lang-block" data-lang="en" style="display:none">
             <h4>(A) Ordering via Alibaba / Made in China</h4>
             <p>Please follow these instructions:</p>
@@ -258,7 +246,6 @@
             </ol>
             <p>Please be serious about your order; do not send requests if you are not genuinely interested to save time.</p>
           </div>
-
           <div class="lang-block" data-lang="zh" style="display:none">
             <h4>(A) 通过 Alibaba / Made in China 下单</h4>
             <p>请遵循以下说明：</p>
@@ -276,12 +263,10 @@
             <p>请认真对待您的订单；如果您不是真心想订购，请不要发送请求，以免浪费时间。</p>
           </div>
         </div>
-
         <div class="tab-pane" id="tab-aliexpress">
           <div class="tab-actions">
             <button class="btn ghost" type="button" id="openAliexpress">فتح في تبويب جديد</button>
           </div>
-
           <div class="lang-block" data-lang="ar">
             <h4>(ب) للطلب من علي اكسبريس من خلالنا 💡</h4>
             <ol>
@@ -303,7 +288,6 @@
             </ol>
             <p><strong>الرجاء الحار:</strong> إذا لم تكن جادًا في الطلب، من فضلك لا ترسل الطلب لتوفير الوقت.</p>
           </div>
-
           <div class="lang-block" data-lang="en" style="display:none">
             <h4>(B) Ordering via AliExpress</h4>
             <p>Please follow these instructions:</p>
@@ -326,7 +310,6 @@
             </ol>
             <p><strong>Please be serious:</strong> If you are not serious about ordering, please do not submit your request to save time.</p>
           </div>
-
           <div class="lang-block" data-lang="zh" style="display:none">
             <h4>(B) 通过 AliExpress 下单</h4>
             <p>请遵循以下说明：</p>
@@ -358,15 +341,11 @@
         <h2 id="calculator_title">حاسبة السعر</h2>
         <label for="price">سعر المنتج بالدولار ($):</label>
         <input id="price" type="number" placeholder="أدخل السعر بالدولار" step="0.01">
-
         <label for="internalFee">رسوم النقل الداخلي ($):</label>
         <input id="internalFee" type="number" placeholder="أدخل رسوم النقل" step="0.01">
-
         <label for="size">حجم المنتج (بالمتر المكعب):</label>
         <input id="size" type="number" placeholder="أدخل الحجم بالمتر المكعب" step="0.01">
-
         <button onclick="calculatePrice()" id="calculate_button">احسب السعر</button>
-
         <h3 id="result"></h3>
       </div>
     </section>
@@ -389,7 +368,7 @@
               <input id="input_phone" placeholder="رقم واتساب" required>
             </div>
             <textarea id="input_msg" placeholder="محتوى الطلب" rows="4"></textarea>
-            <div style="margin-top:12px;display:flex;gap:10px; flex-wrap: wrap;"> /* Added flex-wrap */
+            <div style="margin-top:12px;display:flex;gap:10px; flex-wrap: wrap;">
               <button id="form_send" class="btn" type="submit">إرسال</button>
               <a id="form_whatsapp" class="btn ghost" href="https://wa.me/962782706724" target="_blank">مراسلة عبر واتساب</a>
             </div>
@@ -427,7 +406,6 @@
 
   <script>
     (function(){
-      // ترجمات الواجهة
       const TR = {
         ar: {
           nav_policy:'سياستنا', nav_services:'خدماتنا', nav_platforms:'المنصّات', nav_contact:'اتصل بنا',
@@ -435,7 +413,14 @@
           cta_book:'احجز الآن', cta_services:'تعرّف على الخدمات',
           about_title:'سياستنا', about_text:'نلتزم بالأمان والشفافية: سند قبض للدفعة الأولى وإثبات شراء، مع إمكانيّة تتبّع طلبك في أي وقت. عادةً يصل الطلب خلال <strong>45–60 يومًا</strong> من تاريخ إغلاق الحاوية.',
           services_title:'خدماتنا',
-          services_list:'<li><strong>الاستيراد من Alibaba:</strong> البحث والتفاوض وفحص المورّدين.</li><li><strong>Made in China:</strong> بديل قوي عند عدم توفّر المنتج في علي بابا.</li><li><strong>AliExpress:</strong> لطلبات القطع الفردية أو الكميات الصغيرة.</li><li><strong>منصّات أخرى:</strong> TMALL و TAOBAO و JD (Jingdong) ضمن تغطيتنا.</li>',
+          shipping_header: 'كل ما يهمك عن الشحن معنا',
+          shipping_list: '<li>نقوم بالشحن من **أي مكان في الصين** إلى الأردن.</li><li>نقوم باستلام الشحنات من المورّدين في الصين، ودمجها مع بعضها في حاويات شحن.</li><li>سواء كان لديك شحنة صغيرة أو كبيرة، نقوم بتجهيزها للشحن البحري أو الجوي.</li><li>نحن نتكفل بجميع إجراءات التخليص الجمركي في الأردن، ونقوم بتسليم الشحنة في عنوانك.</li><li>نضمن التوصيل إلى **جميع المحافظات** في الأردن.</li>',
+          experts_header: 'خبراء اختيار المنتج',
+          experts_list: '<li>من خبرتنا الواسعة، نساعدك في **اختيار أفضل المنتجات** من بين مئات الموردين.</li><li>نضمن لك تحقيق الجودة المطلوبة لمنتجك، ونتأكد من أن السعر يناسب ميزانيتك.</li><li>فريقنا يقوم بالبحث والتفاوض مع الموردين نيابة عنك.</li>',
+          safety_header: 'الأمان والشفافية',
+          safety_list: '<li>يتم تسليمك **سند قبض** رسمي بقيمة الدفعة الأولى التي قمت بدفعها.</li><li>نقدم لك **إثباتات شراء** كاملة لضمان الشفافية التامة.</li><li>يمكنك **تتبع طلبك** في أي وقت من خلال فريقنا المختص.</li>',
+          platforms_header: 'منصّات الشراء',
+          platforms_list:'<li><strong>الاستيراد من Alibaba:</strong> البحث والتفاوض وفحص المورّدين.</li><li><strong>Made in China:</strong> بديل قوي عند عدم توفّر المنتج في علي بابا.</li><li><strong>AliExpress:</strong> لطلبات القطع الفردية أو الكميات الصغيرة.</li><li><strong>منصّات أخرى:</strong> TMALL و TAOBAO و JD (Jingdong) ضمن تغطيتنا.</li>',
           platforms_title:'المنصّات التي نغطيها', guides_title:'كل ما تود معرفته عن علي بابا وعلي اكسبريس',
           contact_title:'اتصل بنا', kpi_title:'أرقام سريعة',
           eta_label:'موعد أقرب حاوية',
@@ -444,7 +429,6 @@
           form_send:'إرسال', form_whatsapp:'مراسلة عبر واتساب',
           ph_name:'الاسم', ph_whatsapp:'رقم واتساب', ph_msg:'محتوى الطلب',
           form_alert:'راسلنا عبر واتساب أو البريد ✉️',
-          theme_words:{light:'وضع فاتح', dark:'وضع مظلم'},
           calculator_title: 'حاسبة السعر',
           calc_price_label: 'سعر المنتج بالدولار ($):', calc_price_placeholder: 'أدخل السعر بالدولار',
           calc_internal_fee_label: 'رسوم النقل الداخلي ($):', calc_internal_fee_placeholder: 'أدخل رسوم النقل',
@@ -458,7 +442,14 @@
           cta_book:'Book Now', cta_services:'Explore Services',
           about_title:'Our Policy', about_text:'We commit to safety and transparency: official receipt for the deposit and proof of purchase, plus full order tracking. Typical arrival: 45–60 days from container closing.',
           services_title:'Our Services',
-          services_list:'<li><strong>Import via Alibaba:</strong> Sourcing, negotiation, and supplier checks.</li><li><strong>Made in China:</strong> A strong alternative when items aren\'t on Alibaba.</li><li><strong>AliExpress:</strong> For single items and small quantities.</li><li><strong>Other platforms:</strong> TMALL, TAOBAO, and JD (Jingdong) covered.</li>',
+          shipping_header: 'All You Need to Know About Shipping with Us',
+          shipping_list: '<li>We ship from **anywhere in China** to Jordan.</li><li>We receive shipments from suppliers in China and consolidate them into shipping containers.</li><li>Whether you have a small or large shipment, we prepare it for sea or air freight.</li><li>We handle all customs clearance procedures in Jordan and deliver the shipment to your address.</li><li>We guarantee delivery to **all governorates** in Jordan.</li>',
+          experts_header: 'Product Selection Experts',
+          experts_list: '<li>With our extensive experience, we help you **select the best products** from hundreds of suppliers.</li><li>We ensure the required quality for your product and make sure the price fits your budget.</li><li>Our team handles sourcing and negotiating with suppliers on your behalf.</li>',
+          safety_header: 'Safety and Transparency',
+          safety_list: '<li>You will receive an official **receipt** for the initial deposit you paid.</li><li>We provide complete **proof of purchase** to ensure full transparency.</li><li>You can **track your order** at any time through our dedicated team.</li>',
+          platforms_header: 'Sourcing Platforms',
+          platforms_list:'<li><strong>Import via Alibaba:</strong> Sourcing, negotiation, and supplier checks.</li><li><strong>Made in China:</strong> A strong alternative when items aren\'t on Alibaba.</li><li><strong>AliExpress:</strong> For single items and small quantities.</li><li><strong>Other platforms:</strong> TMALL, TAOBAO, and JD (Jingdong) covered.</li>',
           platforms_title:'Platforms We Cover', guides_title:'Everything you need to know about Alibaba & AliExpress',
           contact_title:'Contact Us', kpi_title:'Quick Stats',
           eta_label:'Next container ETA',
@@ -467,7 +458,6 @@
           form_send:'Send', form_whatsapp:'WhatsApp Us',
           ph_name:'Name', ph_whatsapp:'WhatsApp number', ph_msg:'Order details',
           form_alert:'Please contact us via WhatsApp or email ✉️',
-          theme_words:{light:'Light', dark:'Dark'},
           calculator_title: 'Price Calculator',
           calc_price_label: 'Product Price ($):', calc_price_placeholder: 'Enter price in USD',
           calc_internal_fee_label: 'Domestic Shipping ($):', calc_internal_fee_placeholder: 'Enter shipping fee',
@@ -481,7 +471,14 @@
           cta_book:'立即咨询', cta_services:'查看服务',
           about_title:'我们的政策', about_text:'我们承诺安全透明：订金收据与采购凭证齐全，并提供全程跟踪。通常自封柜起 45–60 天到达。',
           services_title:'我们的服务',
-          services_list:'<li><strong>通过阿里巴巴进口：</strong> 选品、议价、供应商核查。</li><li><strong>Made in China：</strong> 当阿里巴巴无货时的有力替代。</li><li><strong>速卖通：</strong> 单件或小批量采购。</li><li><strong>其它平台：</strong> 覆盖 TMALL、淘宝、京东。</li>',
+          shipping_header: '关于与我们运输的一切',
+          shipping_list: '<li>我们从**中国任何地方**运输到约旦。</li><li>我们接收中国供应商的货物，并将其整合到集装箱中。</li><li>无论您的货物大小，我们都为您准备海运或空运。</li><li>我们处理约旦的所有清关手续，并将货物运送到您的地址。</li><li>我们保证送货到约旦**所有省份**。</li>',
+          experts_header: '产品选择专家',
+          experts_list: '<li>凭借我们丰富的经验，我们帮助您从数百家供应商中**选择最好的产品**。</li><li>我们确保您产品所需的质量，并确保价格符合您的预算。</li><li>我们的团队代表您处理采购和与供应商的谈判。</li>',
+          safety_header: '安全与透明',
+          safety_list: '<li>您将收到您所支付的初始押金的官方**收据**。</li><li>我们提供完整的**采购证明**以确保完全透明。</li><li>您可以随时通过我们的专业团队**追踪您的订单**。</li>',
+          platforms_header: '采购平台',
+          platforms_list:'<li><strong>通过阿里巴巴进口：</strong> 选品、议价、供应商核查。</li><li><strong>Made in China：</strong> 当阿里巴巴无货时的有力替代。</li><li><strong>速卖通：</strong> 单件或小批量采购。</li><li><strong>其它平台：</strong> 覆盖 TMALL、淘宝、京东。</li>',
           platforms_title:'覆盖平台', guides_title:'关于阿里巴巴与速卖通的一切',
           contact_title:'联系我们', kpi_title:'数据速览',
           eta_label:'最近一班集装箱',
@@ -490,7 +487,6 @@
           form_send:'发送', form_whatsapp:'通过 WhatsApp 联系',
           ph_name:'姓名', ph_whatsapp:'WhatsApp 号码', ph_msg:'订单详情',
           form_alert:'请通过 WhatsApp 或电子邮件与我们联系 ✉️',
-          theme_words:{light:'浅色', dark:'深色'},
           calculator_title: '价格计算器',
           calc_price_label: '产品价格 ($):', calc_price_placeholder: '输入美元价格',
           calc_internal_fee_label: '本地运费 ($):', calc_internal_fee_placeholder: '输入运费',
@@ -499,16 +495,15 @@
           calc_result_prefix: '💰 最终价格: ', calc_result_suffix: ' 约旦第纳尔'
         }
       };
-
-      // سنة الحقوق
+      
       document.getElementById('year').textContent = new Date().getFullYear();
-
-      // حالة عامة
       const root = document.documentElement;
       const themeKey = 'theme';
       const langKey = 'lang';
       const themeToggle = document.getElementById('themeToggle');
       const langSelect = document.getElementById('langSelect');
+      const sunIcon = document.getElementById('sun-icon');
+      const moonIcon = document.getElementById('moon-icon');
 
       const state = {
         theme: localStorage.getItem(themeKey) || 'dark',
@@ -517,11 +512,15 @@
 
       function setTheme(t){
         state.theme = t; localStorage.setItem(themeKey, t);
-        if(t === 'light'){ root.setAttribute('data-theme','light'); }
-        else { root.removeAttribute('data-theme'); }
-        // تحديث نص الزر حسب اللغة الحالية
-        const words = TR[state.lang].theme_words;
-        themeToggle.textContent = (t==='light') ? words.dark : words.light;
+        if(t === 'light'){ 
+          root.setAttribute('data-theme','light');
+          sunIcon.style.display = 'none';
+          moonIcon.style.display = 'inline';
+        } else {
+          root.removeAttribute('data-theme');
+          sunIcon.style.display = 'inline';
+          moonIcon.style.display = 'none';
+        }
       }
 
       function setLang(l){
@@ -529,82 +528,85 @@
         document.documentElement.lang = l;
         document.documentElement.dir = (l === 'ar') ? 'rtl' : 'ltr';
 
-        // تحديث النصوص الأساسية
-        const ids = ['nav_policy','nav_services','nav_platforms','nav_contact','hero_tag','hero_title','hero_desc','cta_book','cta_services','about_title','services_title','platforms_title','guides_title','contact_title','kpi_title','eta_label'];
-        ids.forEach(id=>{ const el=document.getElementById(id); if(el && TR[l][id]) el.textContent=TR[l][id]; });
+        const textElements = {
+            'nav_policy': 'nav_policy', 'nav_services': 'nav_services', 'nav_platforms': 'nav_platforms', 'nav_contact': 'nav_contact',
+            'hero_tag': 'hero_tag', 'hero_title': 'hero_title', 'hero_desc': 'hero_desc',
+            'cta_book': 'cta_book', 'cta_services': 'cta_services',
+            'about_title': 'about_title', 'services_title': 'services_title', 'platforms_title': 'platforms_title',
+            'guides_title': 'guides_title', 'contact_title': 'contact_title', 'kpi_title': 'kpi_title',
+            'eta_label': 'eta_label',
+            'contact_addr': 'contact_addr', 'contact_hours': 'contact_hours',
+            'form_send': 'form_send', 'form_whatsapp': 'form_whatsapp',
+            'calculator_title': 'calculator_title',
+            'calculate_button': 'calc_button',
+            'ph_name': 'input_name', 'ph_whatsapp': 'input_phone', 'ph_msg': 'input_msg'
+        };
 
-        // نصوص تفصيلية
-        const aboutTextEl = document.getElementById('about_text'); if(aboutTextEl) aboutTextEl.innerHTML = TR[l].about_text;
-        const servicesList = document.getElementById('services_list'); if(servicesList) servicesList.innerHTML = TR[l].services_list;
-        const contactAddr = document.getElementById('contact_addr'); if(contactAddr) contactAddr.textContent = TR[l].contact_addr;
-        const contactHours = document.getElementById('contact_hours'); if(contactHours) contactHours.textContent = TR[l].contact_hours;
-        const btnSend = document.getElementById('form_send'); if(btnSend) btnSend.textContent = TR[l].form_send;
-        const btnWa = document.getElementById('form_whatsapp'); if(btnWa) btnWa.textContent = TR[l].form_whatsapp;
-        const nm = document.getElementById('input_name'); if(nm) nm.placeholder = TR[l].ph_name;
-        const ph = document.getElementById('input_phone'); if(ph) ph.placeholder = TR[l].ph_whatsapp;
-        const msg = document.getElementById('input_msg'); if(msg) msg.placeholder = TR[l].ph_msg;
-
-        // تحديث نصوص الحاسبة
-        document.getElementById('calculator_title').textContent = TR[l].calculator_title;
-        document.querySelector('.calculator label[for="price"]').textContent = TR[l].calc_price_label;
-        document.getElementById('price').placeholder = TR[l].calc_price_placeholder;
-        document.querySelector('.calculator label[for="internalFee"]').textContent = TR[l].calc_internal_fee_label;
-        document.getElementById('internalFee').placeholder = TR[l].calc_internal_fee_placeholder;
-        document.querySelector('.calculator label[for="size"]').textContent = TR[l].calc_size_label;
-        document.getElementById('size').placeholder = TR[l].calc_size_placeholder;
-        document.getElementById('calculate_button').textContent = TR[l].calc_button;
+        for (const [id, key] of Object.entries(textElements)) {
+            const el = document.getElementById(id);
+            if (el) {
+                if (key.startsWith('ph_')) {
+                    el.placeholder = TR[l][key];
+                } else {
+                    el.textContent = TR[l][key];
+                }
+            }
+        }
+        
+        document.getElementById('about_text').innerHTML = TR[l].about_text;
         document.getElementById('result').dataset.prefix = TR[l].calc_result_prefix;
         document.getElementById('result').dataset.suffix = TR[l].calc_result_suffix;
 
+        // New service sections
+        document.querySelector('#services .card h4:first-of-type').textContent = TR[l].shipping_header;
+        document.querySelector('#services .card:first-of-type ul').innerHTML = TR[l].shipping_list;
+        
+        document.querySelector('#services .grid .card:nth-of-type(1) h4').textContent = TR[l].experts_header;
+        document.querySelector('#services .grid .card:nth-of-type(1) ul').innerHTML = TR[l].experts_list;
+        
+        document.querySelector('#services .grid .card:nth-of-type(2) h4').textContent = TR[l].safety_header;
+        document.querySelector('#services .grid .card:nth-of-type(2) ul').innerHTML = TR[l].safety_list;
 
-        // إظهار كتلة اللغة المناسبة في دليل الطلب
+        document.querySelector('#services .grid .card:nth-of-type(3) h4').textContent = TR[l].platforms_header;
+        document.querySelector('#services .grid .card:nth-of-type(3) ul').innerHTML = TR[l].platforms_list;
+
         document.querySelectorAll('#guides .lang-block').forEach(div=>{
           div.style.display = (div.dataset.lang === l ? 'block' : 'none');
         });
-
-        // حدّث تسمية زر الثيم
         setTheme(state.theme);
       }
 
-      // تبويبات دليل الطلب
       (function initTabs(){
         const tabs = document.getElementById('orderTabs');
         if(!tabs) return;
         const btns = tabs.querySelectorAll('.tab-btn');
         const panes = tabs.querySelectorAll('.tab-pane');
-
         function activate(name){
           btns.forEach(b=>b.classList.toggle('active', b.dataset.tab===name));
           panes.forEach(p=>p.classList.toggle('active', p.id==='tab-'+name));
-          // Only update history if hash is not already set to this tab
           if (location.hash !== '#tab='+name) {
             history.replaceState(null,'','#tab='+name);
           }
         }
         btns.forEach(btn=> btn.addEventListener('click', ()=> activate(btn.dataset.tab)));
-
         const fromHash = (location.hash || '').replace('#tab=','');
         if(fromHash && tabs.querySelector('.tab-btn[data-tab="'+fromHash+'"]')){
           activate(fromHash);
         } else if (btns.length > 0) {
-            // Activate first tab by default if no hash or invalid hash
             activate(btns[0].dataset.tab);
         }
       })();
-
-      // فتح دليل الطلب في تبويب جديد
+      
       function openGuide(type){
         const lang = state.lang;
         const selector = `#tab-${type} .lang-block[data-lang="${lang}"]`;
         const src = document.querySelector(selector);
-
         let title = '';
         if (type === 'alibaba') {
             title = (lang === 'ar' ? 'تعليمات الطلب — Alibaba / Made in China' : lang === 'en' ? 'Order Instructions — Alibaba / Made in China' : '下单说明 — 阿里巴巴 / MIC');
         } else if (type === 'aliexpress') {
             title = (lang === 'ar' ? 'تعليمات الطلب — AliExpress' : lang === 'en' ? 'Order Instructions — AliExpress' : '下单说明 — 速卖通');
         }
-
         const w = window.open('', '_blank');
         w.document.write(`<!doctype html><html lang="${lang}"><head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
@@ -614,7 +616,7 @@
   body{font-family:'Cairo',system-ui,Arial,sans-serif;background:#fff;color:#0f172a;margin:0}
   .wrap{max-width:900px;margin:auto;padding:24px}
   h1{font-size:22px;margin:0 0 12px}
-  ol{line-height:1.8; margin-left: 20px;} /* Added margin for proper list display */
+  ol{line-height:1.8; margin-left: 20px;}
   li { margin-bottom: 10px; }
   .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:#f97316;color:#04130a;font-weight:700;text-decoration:none; margin-top: 16px;}
   .btn:hover { background-color: #e6640e; }
@@ -628,27 +630,22 @@
 </body></html>`);
         w.document.close();
       }
-
-      // ربط الأحداث
+      
       themeToggle.addEventListener('click', ()=> setTheme(state.theme === 'light' ? 'dark' : 'light'));
       langSelect.addEventListener('change', ()=> setLang(langSelect.value));
       document.getElementById('openAliexpress')?.addEventListener('click', ()=> openGuide('aliexpress'));
 
-      // تهيئة الإعدادات عند تحميل الصفحة
       setTheme(state.theme);
       setLang(state.lang);
 
-      // Submit form handler
       window.handleFormSubmit = function(event) {
           event.preventDefault();
           const name = document.getElementById('input_name').value;
           const phone = document.getElementById('input_phone').value;
           const message = document.getElementById('input_msg').value;
           const lang = state.lang;
-
           let url = `https://wa.me/962782706724?text=`;
           let text = '';
-
           if (lang === 'ar') {
               text = `اسم العميل: ${name}%0Aرقم الواتساب: ${phone}%0Aالرسالة: ${message}%0A(تم الإرسال من الموقع)`;
           } else if (lang === 'en') {
@@ -656,28 +653,18 @@
           } else if (lang === 'zh') {
               text = `客户姓名: ${name}%0AWhatsApp号码: ${phone}%0A消息: ${message}%0A(来自网站)`;
           }
-
           url += encodeURIComponent(text);
           window.open(url, '_blank');
-
-          // Optional: Clear form after submit
-          // document.getElementById('input_name').value = '';
-          // document.getElementById('input_phone').value = '';
-          // document.getElementById('input_msg').value = '';
       };
-
-      // دالة حاسبة السعر
+      
       window.calculatePrice = function() {
         var price = parseFloat(document.getElementById('price').value) || 0;
         var internalFee = parseFloat(document.getElementById('internalFee').value) || 0;
         var size = parseFloat(document.getElementById('size').value) || 0;
-
-        // سعر الصرف 0.8 هو الذي تم تحديده
         const exchangeRate = 0.8;
-        const customsMultiplier = 1.36; // 36% customs
-        const baseCommissionRate = 0.25; // 25% commission
-        const shippingPerCubicMeter = 120; // JOD
-
+        const customsMultiplier = 1.36;
+        const baseCommissionRate = 0.25;
+        const shippingPerCubicMeter = 120;
         var totalUSD = price + internalFee;
         var inJOD = totalUSD * exchangeRate;
         var withCustoms = inJOD * customsMultiplier;
@@ -685,11 +672,9 @@
         var baseTotal = withCustoms + shipping;
         var commission = baseTotal * baseCommissionRate;
         var finalPrice = baseTotal + commission;
-
         const resultElement = document.getElementById('result');
-        const prefix = resultElement.dataset.prefix || ''; // Use data-prefix for language-specific text
-        const suffix = resultElement.dataset.suffix || ''; // Use data-suffix for language-specific text
-
+        const prefix = resultElement.dataset.prefix || '';
+        const suffix = resultElement.dataset.suffix || '';
         resultElement.innerHTML = prefix + finalPrice.toFixed(2) + suffix;
       };
     })();
