@@ -15,61 +15,114 @@
     a { color:inherit; text-decoration:none }
     .container { max-width:1100px; margin:auto; padding:24px }
     header { position:sticky; top:0; background:#0b1220cc; backdrop-filter:blur(8px); border-bottom:1px solid #1f2937; z-index:10 }
-    .nav { display:flex; align-items:center; justify-content:space-between }
+    .nav { display:flex; align-items:center; justify-content:space-between; flex-wrap: wrap; /* Responsive nav */ padding: 12px 0; }
     .brand { display:flex; gap:10px; align-items:center }
     .logo { width:40px; height:40px; border-radius:10px; background:#111; display:inline-block; object-fit:cover; border:1px solid #1f2937 }
     .brand h1 { font-size:18px; margin:0 }
     .menu { display:flex; gap:18px; align-items:center }
-    .btn { display:inline-block; padding:12px 16px; border-radius:12px; background:var(--accent); color:#04130a; font-weight:700; box-shadow:0 8px 24px #f9731630; cursor:pointer }
+    .btn { display:inline-block; padding:12px 16px; border-radius:12px; background:var(--accent); color:#04130a; font-weight:700; box-shadow:0 8px 24px #f9731630; cursor:pointer; transition:all .3s ease }
+    .btn:hover { transform: translateY(-2px); box-shadow:0 12px 30px #f9731640; }
     .ghost { background:#0b1220; border:1px solid #1f2937; color:var(--text) }
+    .ghost:hover { background:var(--soft); }
     .hero { display:grid; grid-template-columns:1.2fr 1fr; gap:28px; align-items:center; padding:32px 0 8px }
     .hero h2 { font-size:34px; margin:0 0 12px }
     .hero p { color:var(--muted); line-height:1.8; margin:6px 0 18px }
-    .card { background:var(--card); border:1px solid var(--soft); border-radius:18px; padding:18px }
+    .card { background:var(--card); border:1px solid var(--soft); border-radius:18px; padding:18px; box-shadow:0 4px 12px rgba(0,0,0,.1); }
     .grid { display:grid; grid-template-columns:repeat(3,1fr); gap:18px }
-    @media (max-width:900px) { .hero{grid-template-columns:1fr}.grid{grid-template-columns:1fr} }
+    @media (max-width:900px) {
+      .hero{grid-template-columns:1fr}
+      .grid{grid-template-columns:1fr}
+      .nav .menu { flex-direction: column; gap: 10px; width: 100%; margin-top: 15px; align-items: flex-start;} /* Stack menu items on smaller screens */
+      .nav .menu a, .nav .controls { width: 100%; }
+    }
     .tag { display:inline-block; background:#0b1220; border:1px solid #243041; color:#cbd5e1; border-radius:999px; padding:6px 10px; font-size:12px }
     .section { padding:24px 0 }
-    .section h3 { margin:0 0 14px }
-    .features li { margin:10px 0; color:var(--muted) }
+    .section h3 { margin:0 0 14px; font-size:24px; color:var(--accent); }
+    .features li { margin:10px 0; color:var(--muted); line-height:1.8 }
     .kpis { display:grid; grid-template-columns:repeat(3,1fr); gap:18px }
-    .kpi { background:#0b1220; border:1px dashed #1f2937; border-radius:16px; padding:16px; text-align:center }
-    .kpi .num { font-size:28px; font-weight:700 }
-    .product { display:flex; flex-direction:column; gap:10px }
-    .product img { width:100%; height:180px; object-fit:cover; border-radius:14px; border:1px solid #1f2937 }
-    footer { margin-top:40px; border-top:1px solid #1f2937; color:#94a3b8 }
+    .kpi { background:var(--soft); border:1px dashed var(--soft); border-radius:16px; padding:16px; text-align:center }
+    .kpi .num { font-size:28px; font-weight:700; color:var(--accent); }
+    .product { display:flex; flex-direction:column; gap:10px; text-align:center; }
+    .product img { width:100%; /* height:180px; */ object-fit:cover; border-radius:14px; border:1px solid var(--soft); aspect-ratio: 16/9; /* Maintain aspect ratio */ }
+    footer { margin-top:40px; border-top:1px solid #1f2937; color:#94a3b8; padding:18px 0 }
+    footer .container { display:flex; justify-content:space-between; gap:10px; flex-wrap:wrap; }
     .muted { color:var(--muted) }
-    input,textarea { width:100%; background:#0b1220; border:1px solid #1f2937; border-radius:12px; padding:12px; color:var(--text) }
+    input,textarea { width:100%; background:var(--soft); border:1px solid var(--soft); border-radius:12px; padding:12px; color:var(--text); margin-bottom: 10px; /* Added margin for spacing */ }
+    textarea { resize:vertical; }
     form .row { display:grid; grid-template-columns:1fr 1fr; gap:12px }
     @media(max-width:700px) { form .row { grid-template-columns:1fr } }
-    .controls { display:flex; gap:10px; align-items:center }
-    select.lang { padding:8px 10px; border-radius:10px; background:#0b1220; border:1px solid #1f2937; color:var(--text) }
+    .controls { display:flex; gap:10px; align-items:center; flex-wrap: wrap;} /* Allow controls to wrap */
+    select.lang { padding:12px 10px; border-radius:10px; background:var(--soft); border:1px solid var(--soft); color:var(--text); appearance: none; /* Hide default arrow */ background-image: url('data:image/svg+xml,%3Csvg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="%2394a3b8" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"%3E%3Cpolyline points="6 9 12 15 18 9"%3E%3C/polyline%3E%3C/svg%3E'); background-repeat: no-repeat; background-position: calc(100% - 10px) center; padding-right: 30px; }
     [data-theme="light"] select.lang { background:#ffffff; color:#0f172a; border-color:#cbd5e1 }
-    .toggle { cursor:pointer }
-
-    /* الوضع الليلي*/
-    [data-theme="light"] { --bg:#ffffff; --card:#ffffff; --text:#0f172a; --muted:#475569; --soft:#e5e7eb }
-
+    .toggle { cursor:pointer; border:1px solid var(--soft); background: var(--soft); } /* Style for toggle button */
+    .toggle:hover { background: var(--card); }
     /* بنّر موعد أقرب حاوية */
-    .banner { display:flex; align-items:center; justify-content:space-between; background:linear-gradient(90deg,#f97316,#fb923c); color:#0b1220; border-radius:18px; padding:16px 20px; box-shadow:0 10px 30px #f9731633 }
+    .banner { display:flex; align-items:center; justify-content:space-between; background:linear-gradient(90deg,#f97316,#fb923c); color:#0b1220; border-radius:18px; padding:16px 20px; box-shadow:0 10px 30px #f9731633; flex-wrap: wrap; gap: 10px; }
     .banner strong { font-size:22px }
     .banner .date { font-size:26px; font-weight:800; background:rgba(255,255,255,.9); color:#0b1220; padding:6px 12px; border-radius:10px; border:1px solid #fde68a }
 
     /* تبويبات دليل الطلب */
     .tabs-header { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px }
-    .tab-btn { padding:8px 12px; border-radius:999px; background:#0b1220; border:1px solid var(--soft); color:var(--text); cursor:pointer }
+    .tab-btn { padding:8px 12px; border-radius:999px; background:var(--soft); border:1px solid var(--soft); color:var(--text); cursor:pointer; transition: all .3s ease; }
     [data-theme="light"] .tab-btn { background:#ffffff; color:#0f172a; border-color:#cbd5e1 }
     .tab-btn.active { background:var(--accent); color:#04130a; border-color:transparent }
     .tab-pane { display:none }
     .tab-pane.active { display:block }
-    .tab-actions { display:flex; gap:10px; margin:10px 0 }
-    .product img {
-  width:100%;
-  /* قم بإزالة height:180px; هنا */
-  object-fit:cover;
-  border-radius:14px;
-  border:1px solid #1f2937
-}
+    .tab-actions { display:flex; gap:10px; margin:10px 0; flex-wrap: wrap; }
+
+    /* حاسبة السعر */
+    .calculator { max-width: 400px; margin: 20px auto; padding: 20px; border: 2px solid var(--accent); border-radius: 10px; background-color: var(--card); box-shadow: 0 8px 24px rgba(40, 167, 69, 0.2); } /* Adjusted for accent color */
+    .calculator h2 { text-align: center; color: var(--accent); margin-bottom: 20px; font-size: 24px; }
+    .calculator label { display: block; margin-bottom: 5px; color: var(--muted); font-weight: 500; }
+    .calculator input[type="number"],
+    .calculator input[type="text"] { /* Added text type in case of future use */
+      width: 100%;
+      margin-bottom: 15px; /* Increased spacing */
+      padding: 12px;
+      border: 1px solid var(--soft); /* Consistent border */
+      border-radius: 10px;
+      background-color: var(--soft); /* Match other inputs */
+      color: var(--text);
+      font-size: 16px;
+    }
+    .calculator input[type="number"]::placeholder,
+    .calculator input[type="text"]::placeholder {
+      color: var(--muted);
+    }
+    .calculator button {
+      width: 100%;
+      padding: 12px;
+      background-color: var(--accent); /* Accent color for button */
+      color: #04130a; /* Dark text on bright button */
+      border: none;
+      border-radius: 10px;
+      font-size: 18px;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all .3s ease;
+      box-shadow: 0 6px 18px rgba(249, 115, 22, 0.3);
+    }
+    .calculator button:hover {
+      background-color: #e6640e; /* Slightly darker on hover */
+      transform: translateY(-2px);
+      box-shadow: 0 10px 24px rgba(249, 115, 22, 0.4);
+    }
+    .calculator h3 {
+      text-align: center;
+      margin-top: 20px;
+      font-size: 20px;
+      color: var(--accent); /* Accent color for result */
+      border-top: 1px dashed var(--soft); /* Separator */
+      padding-top: 15px;
+    }
+
+    /* Responsive adjustments for calculator */
+    @media (max-width: 480px) {
+      .calculator { padding: 15px; }
+      .calculator h2 { font-size: 20px; }
+      .calculator button { font-size: 16px; }
+      .calculator h3 { font-size: 18px; }
+    }
   </style>
 </head>
 <body>
@@ -110,13 +163,13 @@
         <span id="hero_tag" class="tag">ابحث، قارن، اختر.. بكل سهولة</span>
         <h2 id="hero_title">هي بوابة دخولك إلى السوق الصينية</h2>
         <p id="hero_desc">نقدّم خدمات شحن شاملة: البحث عن المنتجات، المقارنة بين المورّدين، الإشراف على الشراء، التخليص الجمركي، والشحن إلى أي مكان في العالم—بحلول مخصّصة تناسب مشروعك.</p>
-        <div style="display:flex;gap:10px;margin-top:8px">
+        <div style="display:flex;gap:10px;margin-top:8px; flex-wrap: wrap;"> /* Added flex-wrap */
           <a id="cta_book" class="btn" href="#contact">احجز الآن</a>
           <a id="cta_services" class="btn ghost" href="#services">تعرّف على الخدمات</a>
         </div>
       </div>
       <div class="card">
-        <img src="cover.jpg" alt="صورة الغلاف" style="width:100%;border-radius:12px;border:1px solid #1f2937">
+        <img src="cover.jpg" alt="صورة الغلاف" style="width:100%;border-radius:12px;border:1px solid #1f2937; aspect-ratio: 16/9;">
         <p class="muted" style="margin:10px 4px 0">SHE R IN </p>
       </div>
     </section>
@@ -156,7 +209,7 @@
           <strong>AliExpress</strong>
           <span class="muted">للطلبات الصغيرة والقطع الفردية.</span>
         </div>
-        </div>
+      </div>
     </section>
 
     <section id="guides" class="section">
@@ -299,6 +352,25 @@
         </div>
       </div>
     </section>
+
+    <section id="calculator" class="section">
+      <div class="calculator">
+        <h2 id="calculator_title">حاسبة السعر</h2>
+        <label for="price">سعر المنتج بالدولار ($):</label>
+        <input id="price" type="number" placeholder="أدخل السعر بالدولار" step="0.01">
+
+        <label for="internalFee">رسوم النقل الداخلي ($):</label>
+        <input id="internalFee" type="number" placeholder="أدخل رسوم النقل" step="0.01">
+
+        <label for="size">حجم المنتج (بالمتر المكعب):</label>
+        <input id="size" type="number" placeholder="أدخل الحجم بالمتر المكعب" step="0.01">
+
+        <button onclick="calculatePrice()" id="calculate_button">احسب السعر</button>
+
+        <h3 id="result"></h3>
+      </div>
+    </section>
+
     <section id="contact" class="section">
       <h3 id="contact_title">اتصل بنا</h3>
       <div class="grid" style="grid-template-columns:1.2fr 1fr">
@@ -316,8 +388,8 @@
               <input id="input_name" placeholder="الاسم" required>
               <input id="input_phone" placeholder="رقم واتساب" required>
             </div>
-            <textarea id="input_msg" placeholder="محتوى الطلب" rows="4" style="margin-top:10px"></textarea>
-            <div style="margin-top:12px;display:flex;gap:10px">
+            <textarea id="input_msg" placeholder="محتوى الطلب" rows="4"></textarea>
+            <div style="margin-top:12px;display:flex;gap:10px; flex-wrap: wrap;"> /* Added flex-wrap */
               <button id="form_send" class="btn" type="submit">إرسال</button>
               <a id="form_whatsapp" class="btn ghost" href="https://wa.me/962782706724" target="_blank">مراسلة عبر واتساب</a>
             </div>
@@ -338,7 +410,7 @@
   </main>
 
   <footer>
-    <div class="container" style="display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap;padding:18px 0">
+    <div class="container">
       <span class="muted">© <span id="year"></span> SHE R IN</span>
       <div style="display:flex;gap:18px;align-items:center;flex-wrap:wrap">
         <a class="muted" href="mailto:info@she-r-in.com" title="Email">
@@ -361,7 +433,7 @@
           nav_policy:'سياستنا', nav_services:'خدماتنا', nav_platforms:'المنصّات', nav_contact:'اتصل بنا',
           hero_tag:'ابحث، قارن، اختر.. بكل سهولة', hero_title:'هي بوابة دخولك إلى السوق الصينية', hero_desc:'نقدّم خدمات شحن شاملة: البحث عن المنتجات، المقارنة بين المورّدين، الإشراف على الشراء، التخليص الجمركي، والشحن إلى أي مكان في العالم—بحلول مخصّصة تناسب مشروعك.',
           cta_book:'احجز الآن', cta_services:'تعرّف على الخدمات',
-          about_title:'سياستنا', about_text:'نلتزم بالأمان والشفافية: سند قبض للدفعة الأولى وإثبات شراء، مع إمكانيّة تتبّع طلبك في أي وقت. عادةً يصل الطلب خلال 45–60 يومًا من تاريخ إغلاق الحاوية.',
+          about_title:'سياستنا', about_text:'نلتزم بالأمان والشفافية: سند قبض للدفعة الأولى وإثبات شراء، مع إمكانيّة تتبّع طلبك في أي وقت. عادةً يصل الطلب خلال <strong>45–60 يومًا</strong> من تاريخ إغلاق الحاوية.',
           services_title:'خدماتنا',
           services_list:'<li><strong>الاستيراد من Alibaba:</strong> البحث والتفاوض وفحص المورّدين.</li><li><strong>Made in China:</strong> بديل قوي عند عدم توفّر المنتج في علي بابا.</li><li><strong>AliExpress:</strong> لطلبات القطع الفردية أو الكميات الصغيرة.</li><li><strong>منصّات أخرى:</strong> TMALL و TAOBAO و JD (Jingdong) ضمن تغطيتنا.</li>',
           platforms_title:'المنصّات التي نغطيها', guides_title:'كل ما تود معرفته عن علي بابا وعلي اكسبريس',
@@ -372,7 +444,13 @@
           form_send:'إرسال', form_whatsapp:'مراسلة عبر واتساب',
           ph_name:'الاسم', ph_whatsapp:'رقم واتساب', ph_msg:'محتوى الطلب',
           form_alert:'راسلنا عبر واتساب أو البريد ✉️',
-          theme_words:{light:'وضع فاتح', dark:'وضع مظلم'}
+          theme_words:{light:'وضع فاتح', dark:'وضع مظلم'},
+          calculator_title: 'حاسبة السعر',
+          calc_price_label: 'سعر المنتج بالدولار ($):', calc_price_placeholder: 'أدخل السعر بالدولار',
+          calc_internal_fee_label: 'رسوم النقل الداخلي ($):', calc_internal_fee_placeholder: 'أدخل رسوم النقل',
+          calc_size_label: 'حجم المنتج (بالمتر المكعب):', calc_size_placeholder: 'أدخل الحجم بالمتر المكعب',
+          calc_button: 'احسب السعر',
+          calc_result_prefix: '💰 السعر النهائي: ', calc_result_suffix: ' دينار أردني'
         },
         en: {
           nav_policy:'Policy', nav_services:'Services', nav_platforms:'Platforms', nav_contact:'Contact',
@@ -389,7 +467,13 @@
           form_send:'Send', form_whatsapp:'WhatsApp Us',
           ph_name:'Name', ph_whatsapp:'WhatsApp number', ph_msg:'Order details',
           form_alert:'Please contact us via WhatsApp or email ✉️',
-          theme_words:{light:'Light', dark:'Dark'}
+          theme_words:{light:'Light', dark:'Dark'},
+          calculator_title: 'Price Calculator',
+          calc_price_label: 'Product Price ($):', calc_price_placeholder: 'Enter price in USD',
+          calc_internal_fee_label: 'Domestic Shipping ($):', calc_internal_fee_placeholder: 'Enter shipping fee',
+          calc_size_label: 'Product Size (Cubic Meters):', calc_size_placeholder: 'Enter volume in m³',
+          calc_button: 'Calculate Price',
+          calc_result_prefix: '💰 Final Price: ', calc_result_suffix: ' Jordanian Dinar'
         },
         zh: {
           nav_policy:'政策', nav_services:'服务', nav_platforms:'平台', nav_contact:'联系',
@@ -406,7 +490,13 @@
           form_send:'发送', form_whatsapp:'通过 WhatsApp 联系',
           ph_name:'姓名', ph_whatsapp:'WhatsApp 号码', ph_msg:'订单详情',
           form_alert:'请通过 WhatsApp 或电子邮件与我们联系 ✉️',
-          theme_words:{light:'浅色', dark:'深色'}
+          theme_words:{light:'浅色', dark:'深色'},
+          calculator_title: '价格计算器',
+          calc_price_label: '产品价格 ($):', calc_price_placeholder: '输入美元价格',
+          calc_internal_fee_label: '本地运费 ($):', calc_internal_fee_placeholder: '输入运费',
+          calc_size_label: '产品体积 (立方米):', calc_size_placeholder: '输入立方米体积',
+          calc_button: '计算价格',
+          calc_result_prefix: '💰 最终价格: ', calc_result_suffix: ' 约旦第纳尔'
         }
       };
 
@@ -439,6 +529,7 @@
         document.documentElement.lang = l;
         document.documentElement.dir = (l === 'ar') ? 'rtl' : 'ltr';
 
+        // تحديث النصوص الأساسية
         const ids = ['nav_policy','nav_services','nav_platforms','nav_contact','hero_tag','hero_title','hero_desc','cta_book','cta_services','about_title','services_title','platforms_title','guides_title','contact_title','kpi_title','eta_label'];
         ids.forEach(id=>{ const el=document.getElementById(id); if(el && TR[l][id]) el.textContent=TR[l][id]; });
 
@@ -452,6 +543,19 @@
         const nm = document.getElementById('input_name'); if(nm) nm.placeholder = TR[l].ph_name;
         const ph = document.getElementById('input_phone'); if(ph) ph.placeholder = TR[l].ph_whatsapp;
         const msg = document.getElementById('input_msg'); if(msg) msg.placeholder = TR[l].ph_msg;
+
+        // تحديث نصوص الحاسبة
+        document.getElementById('calculator_title').textContent = TR[l].calculator_title;
+        document.querySelector('.calculator label[for="price"]').textContent = TR[l].calc_price_label;
+        document.getElementById('price').placeholder = TR[l].calc_price_placeholder;
+        document.querySelector('.calculator label[for="internalFee"]').textContent = TR[l].calc_internal_fee_label;
+        document.getElementById('internalFee').placeholder = TR[l].calc_internal_fee_placeholder;
+        document.querySelector('.calculator label[for="size"]').textContent = TR[l].calc_size_label;
+        document.getElementById('size').placeholder = TR[l].calc_size_placeholder;
+        document.getElementById('calculate_button').textContent = TR[l].calc_button;
+        document.getElementById('result').dataset.prefix = TR[l].calc_result_prefix;
+        document.getElementById('result').dataset.suffix = TR[l].calc_result_suffix;
+
 
         // إظهار كتلة اللغة المناسبة في دليل الطلب
         document.querySelectorAll('#guides .lang-block').forEach(div=>{
@@ -472,26 +576,34 @@
         function activate(name){
           btns.forEach(b=>b.classList.toggle('active', b.dataset.tab===name));
           panes.forEach(p=>p.classList.toggle('active', p.id==='tab-'+name));
-          history.replaceState(null,'','#tab='+name);
+          // Only update history if hash is not already set to this tab
+          if (location.hash !== '#tab='+name) {
+            history.replaceState(null,'','#tab='+name);
+          }
         }
         btns.forEach(btn=> btn.addEventListener('click', ()=> activate(btn.dataset.tab)));
 
         const fromHash = (location.hash || '').replace('#tab=','');
         if(fromHash && tabs.querySelector('.tab-btn[data-tab="'+fromHash+'"]')){
           activate(fromHash);
+        } else if (btns.length > 0) {
+            // Activate first tab by default if no hash or invalid hash
+            activate(btns[0].dataset.tab);
         }
       })();
 
       // فتح دليل الطلب في تبويب جديد
       function openGuide(type){
         const lang = state.lang;
-        const sel = type==='alibaba'
-          ? '#tab-alibaba .lang-block[data-lang="'+lang+'"]'
-          : '#tab-aliexpress .lang-block[data-lang="'+lang+'"]';
-        const src = document.querySelector(sel);
-        const title = type==='alibaba'
-          ? (lang==='ar'?'تعليمات الطلب — Alibaba / Made in China': lang==='en'?'Order Instructions — Alibaba / Made in China':'下单说明 — 阿里巴巴 / MIC')
-          : (lang==='ar'?'تعليمات الطلب — AliExpress': lang==='en'?'Order Instructions — AliExpress':'下单说明 — 速卖通');
+        const selector = `#tab-${type} .lang-block[data-lang="${lang}"]`;
+        const src = document.querySelector(selector);
+
+        let title = '';
+        if (type === 'alibaba') {
+            title = (lang === 'ar' ? 'تعليمات الطلب — Alibaba / Made in China' : lang === 'en' ? 'Order Instructions — Alibaba / Made in China' : '下单说明 — 阿里巴巴 / MIC');
+        } else if (type === 'aliexpress') {
+            title = (lang === 'ar' ? 'تعليمات الطلب — AliExpress' : lang === 'en' ? 'Order Instructions — AliExpress' : '下单说明 — 速卖通');
+        }
 
         const w = window.open('', '_blank');
         w.document.write(`<!doctype html><html lang="${lang}"><head>
@@ -502,37 +614,84 @@
   body{font-family:'Cairo',system-ui,Arial,sans-serif;background:#fff;color:#0f172a;margin:0}
   .wrap{max-width:900px;margin:auto;padding:24px}
   h1{font-size:22px;margin:0 0 12px}
-  ol{line-height:1.8}
-  .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:#f97316;color:#04130a;font-weight:700;text-decoration:none}
+  ol{line-height:1.8; margin-left: 20px;} /* Added margin for proper list display */
+  li { margin-bottom: 10px; }
+  .btn{display:inline-block;padding:10px 14px;border-radius:10px;background:#f97316;color:#04130a;font-weight:700;text-decoration:none; margin-top: 16px;}
+  .btn:hover { background-color: #e6640e; }
 </style>
 </head><body>
   <div class="wrap">
     <h1>${title}</h1>
-    ${src ? src.innerHTML : '<p>(لا يوجد محتوى)</p>'}
-    <p style="margin-top:16px"><a class="btn" href="/">العودة للصفحة الرئيسية</a></p>
+    ${src ? src.innerHTML : '<p>(No content available for this language/section)</p>'}
+    <a href="#" class="btn" onclick="window.close(); return false;">Close Window</a>
   </div>
 </body></html>`);
         w.document.close();
       }
-      const openA = document.getElementById('openAlibaba');
-      const openE = document.getElementById('openAliexpress');
-      if(openA) openA.addEventListener('click', ()=> openGuide('alibaba'));
-      if(openE) openE.addEventListener('click', ()=> openGuide('aliexpress'));
 
-      // إرسال النموذج
-      window.handleFormSubmit = function(e){ e.preventDefault(); alert(TR[state.lang].form_alert); return false; };
+      // ربط الأحداث
+      themeToggle.addEventListener('click', ()=> setTheme(state.theme === 'light' ? 'dark' : 'light'));
+      langSelect.addEventListener('change', ()=> setLang(langSelect.value));
+      document.getElementById('openAliexpress')?.addEventListener('click', ()=> openGuide('aliexpress'));
 
-      // تهيئة أولية
-      langSelect.value = state.lang;
-      setLang(state.lang);
+      // تهيئة الإعدادات عند تحميل الصفحة
       setTheme(state.theme);
+      setLang(state.lang);
 
-      // مستمعات
-      langSelect.addEventListener('change', e=> setLang(e.target.value));
-      themeToggle.addEventListener('click', ()=> setTheme(state.theme==='light' ? 'dark' : 'light'));
+      // Submit form handler
+      window.handleFormSubmit = function(event) {
+          event.preventDefault();
+          const name = document.getElementById('input_name').value;
+          const phone = document.getElementById('input_phone').value;
+          const message = document.getElementById('input_msg').value;
+          const lang = state.lang;
 
-      // تاريخ الحاوية (عدّلي النص هنا متى توفر التاريخ)
-      const etaEl = document.getElementById('eta_date'); if(etaEl) etaEl.textContent = 'قريبًا';
+          let url = `https://wa.me/962782706724?text=`;
+          let text = '';
+
+          if (lang === 'ar') {
+              text = `اسم العميل: ${name}%0Aرقم الواتساب: ${phone}%0Aالرسالة: ${message}%0A(تم الإرسال من الموقع)`;
+          } else if (lang === 'en') {
+              text = `Customer Name: ${name}%0AWhatsApp Number: ${phone}%0AMessage: ${message}%0A(Sent from website)`;
+          } else if (lang === 'zh') {
+              text = `客户姓名: ${name}%0AWhatsApp号码: ${phone}%0A消息: ${message}%0A(来自网站)`;
+          }
+
+          url += encodeURIComponent(text);
+          window.open(url, '_blank');
+
+          // Optional: Clear form after submit
+          // document.getElementById('input_name').value = '';
+          // document.getElementById('input_phone').value = '';
+          // document.getElementById('input_msg').value = '';
+      };
+
+      // دالة حاسبة السعر
+      window.calculatePrice = function() {
+        var price = parseFloat(document.getElementById('price').value) || 0;
+        var internalFee = parseFloat(document.getElementById('internalFee').value) || 0;
+        var size = parseFloat(document.getElementById('size').value) || 0;
+
+        // سعر الصرف 0.8 هو الذي تم تحديده
+        const exchangeRate = 0.8;
+        const customsMultiplier = 1.36; // 36% customs
+        const baseCommissionRate = 0.25; // 25% commission
+        const shippingPerCubicMeter = 120; // JOD
+
+        var totalUSD = price + internalFee;
+        var inJOD = totalUSD * exchangeRate;
+        var withCustoms = inJOD * customsMultiplier;
+        var shipping = size * shippingPerCubicMeter;
+        var baseTotal = withCustoms + shipping;
+        var commission = baseTotal * baseCommissionRate;
+        var finalPrice = baseTotal + commission;
+
+        const resultElement = document.getElementById('result');
+        const prefix = resultElement.dataset.prefix || ''; // Use data-prefix for language-specific text
+        const suffix = resultElement.dataset.suffix || ''; // Use data-suffix for language-specific text
+
+        resultElement.innerHTML = prefix + finalPrice.toFixed(2) + suffix;
+      };
     })();
   </script>
 </body>
