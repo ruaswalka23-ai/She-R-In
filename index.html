@@ -265,7 +265,7 @@
               <li>预计送达时间通常为集装箱关仓日期起的 45-60 天。集装箱可能因海关拥堵而延迟。</li>
               <li>付款方式：在签署合同并收到已付款的盖章收据后，在我们的办公室（Sweifieh – Amman）亲自付款。</li>
             </ol>
-            <p>请认真对待您的订单；如果您不是真心想订购，请不要发送请求，以免浪费时间。</p>
+            <p>请认真对待您的订单；如果您不是真心想订购，请不要发送您的请求，以免浪费时间。</p>
           </div>
         </div>
         <div class="tab-pane" id="tab-aliexpress">
@@ -430,8 +430,6 @@
           contact_addr:'العنوان: AVT, Rae\'d Khalaf Complex, Sweifieh – Amman',
           contact_hours:'ساعات العمل: الأحد–الخميس 09:00–21:00 • الجمعة–السبت: مغلق',
           form_send:'إرسال', form_whatsapp:'مراسلة عبر واتساب',
-          ph_name:'الاسم', ph_whatsapp:'رقم واتساب', ph_msg:'محتوى الطلب',
-          form_alert:'راسلنا عبر واتساب أو البريد ✉️',
           calculator_title: 'حاسبة السعر',
           calc_price_label: 'سعر المنتج بالدولار ($):', calc_price_placeholder: 'أدخل السعر بالدولار',
           calc_internal_fee_label: 'رسوم النقل الداخلي ($):', calc_internal_fee_placeholder: 'أدخل رسوم النقل',
@@ -574,27 +572,45 @@
         setTheme(state.theme);
       }
 
+      // ======= تفعيل التبويبات بدون هاش (تخزين محلي فقط) =======
       (function initTabs(){
-        const tabs = document.getElementById('orderTabs');
-        if(!tabs) return;
-        const btns = tabs.querySelectorAll('.tab-btn');
-        const panes = tabs.querySelectorAll('.tab-pane');
+        const tabsWrap = document.getElementById('orderTabs');
+        if(!tabsWrap) return;
+
+        const STORAGE_KEY = 'activeTab';
+        const btns  = tabsWrap.querySelectorAll('.tab-btn');
+        const panes = tabsWrap.querySelectorAll('.tab-pane');
+
         function activate(name){
-          btns.forEach(b=>b.classList.toggle('active', b.dataset.tab===name));
-          panes.forEach(p=>p.classList.toggle('active', p.id==='tab-'+name));
-          if (location.hash !== '#tab='+name) {
-            history.replaceState(null,'','#tab='+name);
-          }
+          btns.forEach(b => b.classList.toggle('active', b.dataset.tab === name));
+          panes.forEach(p => p.classList.toggle('active', p.id === 'tab-' + name));
+          localStorage.setItem(STORAGE_KEY, name);
         }
-        btns.forEach(btn=> btn.addEventListener('click', ()=> activate(btn.dataset.tab)));
-        const fromHash = (location.hash || '').replace('#tab=','');
-        if(fromHash && tabs.querySelector('.tab-btn[data-tab="'+fromHash+'"]')){
-          activate(fromHash);
-        } else if (btns.length > 0) {
-            activate(btns[0].dataset.tab);
+
+        btns.forEach(btn => {
+          btn.addEventListener('click', () => {
+            const name = btn.dataset.tab;
+            activate(name);
+          });
+        });
+
+        // تحديد التبويب الابتدائي:
+        // 1) لو دخل الزائر برابط قديم فيه #tab=... نستخدمه مرة وننظّف الرابط
+        // 2) وإلا نقرأه من التخزين المحلي
+        // 3) وإلا أول تبويب
+        let initial = null;
+        const hash = (location.hash || '');
+        if (hash.startsWith('#tab=')) {
+          initial = hash.replace('#tab=','');
+          // تنظيف الرابط فورًا (بدون هاش)
+          history.replaceState(null, '', location.pathname + location.search);
+        } else {
+          initial = localStorage.getItem(STORAGE_KEY) || (btns[0] && btns[0].dataset.tab) || 'alibaba';
         }
+        activate(initial);
       })();
-      
+      // ======= نهاية منطق التبويبات =======
+
       function openGuide(type){
         const lang = state.lang;
         const selector = `#tab-${type} .lang-block[data-lang="${lang}"]`;
@@ -678,4 +694,4 @@
     })();
   </script>
 </body>
-</html>h
+</html>
