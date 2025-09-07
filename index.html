@@ -182,9 +182,9 @@
     <section id="local-platforms" class="section">
       <h3 id="local_platforms_title">استيرادك من المنصّات الصينية المحلية</h3>
       <div class="card">
-        <p>لا يقتصر عملنا على المنصّات الدولية مثل علي بابا وعلي إكسبريس، بل نمتد إلى السوق الصينية المحلية. نساعدك في الشراء من كبار الموردين الصينيين عبر منصّات مثل **Taobao (تاوباو)** و**1688** و**JD.com (جي دي دوت كوم)**، حيث تجد أسعاراً لا مثيل لها للمنتجات التي قد لا تكون متاحة في المنصّات الدولية.</p>
+        <p>لا يقتصر عملنا على المنصّات الدولية مثل علي بابا وعلي إكسبريس، بل نمتد إلى السوق الصينية المحلية. نساعدك في الشراء من كبار الموردين الصينيين عبر منصّات مثل <strong>Taobao (تاوباو)</strong> و<strong>1688</strong> و<strong>JD.com (جي دي دوت كوم)</strong>، حيث تجد أسعاراً لا مثيل لها للمنتجات التي قد لا تكون متاحة في المنصّات الدولية.</p>
         <p>
-            **الثقة والخبرة في التعامل:** نحن نضمن لك التعامل مع **جميع الموردين الصينيين الموثوقين** أينما كانوا. يقوم فريقنا بفحص الموردين والتأكد من موثوقيتهم قبل إتمام أي عملية شراء. خبرتنا الطويلة في السوق الصينية تضمن لك أقصى درجات الأمان والشفافية، لتحصل على شحنتك كما تريد، وبالسعر الذي يناسبك.
+            <strong>الثقة والخبرة في التعامل:</strong> نحن نضمن لك التعامل مع <strong>جميع الموردين الصينيين الموثوقين</strong> أينما كانوا. يقوم فريقنا بفحص الموردين والتأكد من موثوقيتهم قبل إتمام أي عملية شراء. خبرتنا الطويلة في السوق الصينية تضمن لك أقصى درجات الأمان والشفافية، لتحصل على شحنتك كما تريد، وبالسعر الذي يناسبك.
         </p>
       </div>
     </section>
@@ -430,8 +430,6 @@
           contact_addr:'العنوان: AVT, Rae\'d Khalaf Complex, Sweifieh – Amman',
           contact_hours:'ساعات العمل: الأحد–الخميس 09:00–21:00 • الجمعة–السبت: مغلق',
           form_send:'إرسال', form_whatsapp:'مراسلة عبر واتساب',
-          ph_name:'الاسم', ph_whatsapp:'رقم واتساب', ph_msg:'محتوى الطلب',
-          form_alert:'راسلنا عبر واتساب أو البريد ✉️',
           calculator_title: 'حاسبة السعر',
           calc_price_label: 'سعر المنتج بالدولار ($):', calc_price_placeholder: 'أدخل السعر بالدولار',
           calc_internal_fee_label: 'رسوم النقل الداخلي ($):', calc_internal_fee_placeholder: 'أدخل رسوم النقل',
@@ -458,8 +456,6 @@
           contact_addr:'Address: AVT, Rae\'d Khalaf Complex, Sweifieh – Amman',
           contact_hours:'Hours: Sun–Thu 09:00–21:00 • Fri–Sat: Closed',
           form_send:'Send', form_whatsapp:'WhatsApp Us',
-          ph_name:'Name', ph_whatsapp:'WhatsApp number', ph_msg:'Order details',
-          form_alert:'Please contact us via WhatsApp or email ✉️',
           calculator_title: 'Price Calculator',
           calc_price_label: 'Product Price ($):', calc_price_placeholder: 'Enter price in USD',
           calc_internal_fee_label: 'Domestic Shipping ($):', calc_internal_fee_placeholder: 'Enter shipping fee',
@@ -486,8 +482,6 @@
           contact_addr:'地址：AVT, Rae\'d Khalaf Complex, Sweifieh – 安曼',
           contact_hours:'工作时间：周日–周四 09:00–21:00 • 周五/周六休息',
           form_send:'发送', form_whatsapp:'通过 WhatsApp 联系',
-          ph_name:'姓名', ph_whatsapp:'WhatsApp 号码', ph_msg:'订单详情',
-          form_alert:'请通过 WhatsApp 或电子邮件与我们联系 ✉️',
           calculator_title: '价格计算器',
           calc_price_label: '产品价格 ($):', calc_price_placeholder: '输入美元价格',
           calc_internal_fee_label: '本地运费 ($):', calc_internal_fee_placeholder: '输入运费',
@@ -574,24 +568,37 @@
         setTheme(state.theme);
       }
 
+      /* === التعديل الوحيد هنا: إدارة التبويبات بدون كتابة #tab=... في العنوان، مع تنظيفه إن وُجد === */
       (function initTabs(){
-        const tabs = document.getElementById('orderTabs');
-        if(!tabs) return;
-        const btns = tabs.querySelectorAll('.tab-btn');
+        const tabs  = document.getElementById('orderTabs');
+        if (!tabs) return;
+
+        const btns  = tabs.querySelectorAll('.tab-btn');
         const panes = tabs.querySelectorAll('.tab-pane');
+
         function activate(name){
-          btns.forEach(b=>b.classList.toggle('active', b.dataset.tab===name));
-          panes.forEach(p=>p.classList.toggle('active', p.id==='tab-'+name));
-          if (location.hash !== '#tab='+name) {
-            history.replaceState(null,'','#tab='+name);
-          }
+          btns.forEach(b => b.classList.toggle('active', b.dataset.tab === name));
+          panes.forEach(p => p.classList.toggle('active', p.id === 'tab-' + name));
+          // لا نضيف أي hash للعنوان
         }
-        btns.forEach(btn=> btn.addEventListener('click', ()=> activate(btn.dataset.tab)));
-        const fromHash = (location.hash || '').replace('#tab=','');
-        if(fromHash && tabs.querySelector('.tab-btn[data-tab="'+fromHash+'"]')){
-          activate(fromHash);
-        } else if (btns.length > 0) {
+
+        // الضغط على أزرار التبويب
+        btns.forEach(btn => btn.addEventListener('click', () => activate(btn.dataset.tab)));
+
+        // لو الصفحة فُتحت مع #tab=... نفعل التبويب ثم ننظف العنوان
+        const h = (location.hash || '');
+        if (h.startsWith('#tab=')) {
+          const name = h.replace('#tab=', '');
+          if (tabs.querySelector('.tab-btn[data-tab="' + name + '"]')) {
+            activate(name);
+          } else if (btns.length > 0) {
             activate(btns[0].dataset.tab);
+          }
+          // تنظيف العنوان من #tab=...
+          history.replaceState(null, '', location.pathname + location.search);
+        } else {
+          // بدون هاش: فعّل أول تبويب افتراضيًا
+          if (btns.length > 0) activate(btns[0].dataset.tab);
         }
       })();
       
@@ -629,8 +636,12 @@
         w.document.close();
       }
       
+      const themeToggle = document.getElementById('themeToggle');
       themeToggle.addEventListener('click', ()=> setTheme(state.theme === 'light' ? 'dark' : 'light'));
+
+      const langSelect = document.getElementById('langSelect');
       langSelect.addEventListener('change', ()=> setLang(langSelect.value));
+
       document.getElementById('openAliexpress')?.addEventListener('click', ()=> openGuide('aliexpress'));
 
       setTheme(state.theme);
