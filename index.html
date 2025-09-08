@@ -754,30 +754,7 @@
         userPinnedCollapsed = next;     // تثبيت/إلغاء التثبيت
       });
 
-      // Auto-Hide عند التمرير (موبايل فقط)
-      let lastY = window.scrollY;
-      let ticking = false;
-
-      function onScrollAutoHide(){
-        if (!mq.matches) return; // لا يعمل على الديسكتوب
-        const y = window.scrollY;
-        const delta = y - lastY;
-        lastY = y;
-
-        if (y < 40){
-          if (!userPinnedCollapsed) setCollapsed(false, false);
-          return;
-        }
-
-        if (delta > 0){
-          // نزول: اطوِ
-          setCollapsed(true, false);
-        } else {
-          // طلوع: افتح إذا غير مثبّت مطوي
-          if (!userPinnedCollapsed) setCollapsed(false, false);
-        }
-      }
-
+      
       window.addEventListener('scroll', () => {
         if (!ticking){
           requestAnimationFrame(() => { onScrollAutoHide(); ticking = false; });
