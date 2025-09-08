@@ -86,6 +86,17 @@
       .calculator button { font-size: 16px; }
       .calculator h3 { font-size: 18px; }
     }
+
+    /* ==================== ADD: Mobile Header Collapse ==================== */
+    .collapse-btn { display: none; }
+    @media (max-width:900px) {
+      .collapse-btn { display:inline-flex; margin-inline-start:8px; }
+      header.collapsed .nav { padding:6px 0; }
+      header.collapsed .menu { display:none !important; }
+      header.collapsed .brand h1 { display:none; }
+      header.collapsed .logo { width:32px; height:32px; }
+    }
+    /* ==================================================================== */
   </style>
 </head>
 <body>
@@ -94,6 +105,14 @@
       <div class="brand">
         <img class="logo" src="logo.png" alt="SHE R IN logo" />
         <h1>SHE R IN</h1>
+        <!-- ADD: زر طي/فتح الهيدر على الموبايل -->
+        <button id="collapseHeader" class="btn ghost toggle collapse-btn" type="button" aria-expanded="true" aria-label="طيّ الشريط العلوي">
+          <!-- up -->
+          <svg id="chevron-up" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><polyline points="18 15 12 9 6 15"></polyline></svg>
+          <!-- down -->
+          <svg id="chevron-down" xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="display:none;"><polyline points="6 9 12 15 18 9"></polyline></svg>
+        </button>
+        <!-- /ADD -->
       </div>
       <nav class="menu">
         <a id="nav_policy" href="#about">سياستنا</a>
@@ -182,9 +201,9 @@
     <section id="local-platforms" class="section">
       <h3 id="local_platforms_title">استيرادك من المنصّات الصينية المحلية</h3>
       <div class="card">
-        <p>لا يقتصر عملنا على المنصّات الدولية مثل علي بابا وعلي إكسبريس، بل نمتد إلى السوق الصينية المحلية. نساعدك في الشراء من كبار الموردين الصينيين عبر منصّات مثل **Taobao (تاوباو)** و**1688** و**JD.com (جي دي دوت كوم)**، حيث تجد أسعاراً لا مثيل لها للمنتجات التي قد لا تكون متاحة في المنصّات الدولية.</p>
+        <p>لا يقتصر عملنا على المنصّات الدولية مثل علي بابا وعلي إكسبريس، بل نمتد إلى السوق الصينية المحلية. نساعدك في الشراء من كبار الموردين الصينيين عبر منصّات مثل <strong>Taobao (تاوباو)</strong> و<strong>1688</strong> و<strong>JD.com (جي دي دوت كوم)</strong>، حيث تجد أسعاراً لا مثيل لها للمنتجات التي قد لا تكون متاحة في المنصّات الدولية.</p>
         <p>
-            **الثقة والخبرة في التعامل:** نحن نضمن لك التعامل مع **جميع الموردين الصينيين الموثوقين** أينما كانوا. يقوم فريقنا بفحص الموردين والتأكد من موثوقيتهم قبل إتمام أي عملية شراء. خبرتنا الطويلة في السوق الصينية تضمن لك أقصى درجات الأمان والشفافية، لتحصل على شحنتك كما تريد، وبالسعر الذي يناسبك.
+            <strong>الثقة والخبرة في التعامل:</strong> نحن نضمن لك التعامل مع <strong>جميع الموردين الصينيين الموثوقين</strong> أينما كانوا. يقوم فريقنا بفحص الموردين والتأكد من موثوقيتهم قبل إتمام أي عملية شراء. خبرتنا الطويلة في السوق الصينية تضمن لك أقصى درجات الأمان والشفافية، لتحصل على شحنتك كما تريد، وبالسعر الذي يناسبك.
         </p>
       </div>
     </section>
@@ -404,6 +423,16 @@
           <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.86 19.86 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6A19.86 19.86 0 0 1 2.08 4.18 2 2 0 0 1 4.06 2h3a2 2 0 0 1 2 1.72c.12.82.3 1.61.54 2.36a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.72-1.06a2 2 0 0 1 2.11-.45c.75.24 1.54.42 2.36.54A2 2 0 0 1 22 16.92z"></path></svg>
           <span style="margin-inline-start:6px">+962782706724</span>
         </a>
+        <!-- ADD: Social links -->
+        <a class="muted" href="https://www.facebook.com/share/15wSdgLitJ/" title="Facebook" target="_blank" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M22 12.07C22 6.49 17.52 2 11.93 2S2 6.49 2 12.07c0 5.02 3.66 9.19 8.44 9.93v-7.02H7.9v-2.91h2.54V9.41c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.24.2 2.24.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.87h2.78l-.44 2.91h-2.34V22c4.78-.74 8.44-4.91 8.44-9.93z"/></svg>
+          <span style="margin-inline-start:6px">Facebook</span>
+        </a>
+        <a class="muted" href="https://www.instagram.com/she_r_in.co?igsh=MWNxYjMzaDFheG5ueQ==" title="Instagram" target="_blank" rel="noopener">
+          <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor"><path d="M7 2h10a5 5 0 0 1 5 5v10a5 5 0 0 1-5 5H7a5 5 0 0 1-5-5V7a5 5 0 0 1 5-5zm3 5a5 5 0 1 0 4 0h-4zm8.5-.75a1 1 0 1 0 0 2 1 1 0 0 0 0-2z"/></svg>
+          <span style="margin-inline-start:6px">Instagram</span>
+        </a>
+        <!-- /ADD -->
       </div>
     </div>
   </footer>
@@ -556,7 +585,6 @@
         document.getElementById('result').dataset.prefix = TR[l].calc_result_prefix;
         document.getElementById('result').dataset.suffix = TR[l].calc_result_suffix;
 
-        // New service sections
         document.querySelector('#services .grid .card:nth-of-type(1) h4').textContent = TR[l].shipping_header;
         document.querySelector('#services .grid .card:nth-of-type(1) ul').innerHTML = TR[l].shipping_list;
         
@@ -594,15 +622,10 @@
           });
         });
 
-        // تحديد التبويب الابتدائي:
-        // 1) لو دخل الزائر برابط قديم فيه #tab=... نستخدمه مرة وننظّف الرابط
-        // 2) وإلا نقرأه من التخزين المحلي
-        // 3) وإلا أول تبويب
         let initial = null;
         const hash = (location.hash || '');
         if (hash.startsWith('#tab=')) {
           initial = hash.replace('#tab=','');
-          // تنظيف الرابط فورًا (بدون هاش)
           history.replaceState(null, '', location.pathname + location.search);
         } else {
           initial = localStorage.getItem(STORAGE_KEY) || (btns[0] && btns[0].dataset.tab) || 'alibaba';
@@ -691,6 +714,83 @@
         const suffix = resultElement.dataset.suffix || '';
         resultElement.innerHTML = prefix + finalPrice.toFixed(2) + suffix;
       };
+
+      /* ==================== ADD: طيّ الهيدر للموبايل + Auto-Hide ==================== */
+      const headerEl = document.querySelector('header');
+      const collapseBtn = document.getElementById('collapseHeader');
+      const upIcon = document.getElementById('chevron-up');
+      const downIcon = document.getElementById('chevron-down');
+      const COLLAPSE_KEY = 'headerCollapsed';
+      const mq = window.matchMedia('(max-width: 900px)');
+
+      // هل الهيدر "مثبّت مطوي" يدويًا؟
+      let userPinnedCollapsed = JSON.parse(localStorage.getItem(COLLAPSE_KEY) || 'false');
+
+      function setCollapsed(flag, persist=false){
+        if(flag){
+          headerEl.classList.add('collapsed');
+          collapseBtn?.setAttribute('aria-expanded','false');
+          if (upIcon && downIcon){ upIcon.style.display = 'none'; downIcon.style.display = 'inline'; }
+        }else{
+          headerEl.classList.remove('collapsed');
+          collapseBtn?.setAttribute('aria-expanded','true');
+          if (upIcon && downIcon){ upIcon.style.display = 'inline'; downIcon.style.display = 'none'; }
+        }
+        if (persist) localStorage.setItem(COLLAPSE_KEY, JSON.stringify(!!flag));
+      }
+
+      function applyForViewport(){
+        // الديسكتوب: دائمًا مفتوح
+        if(!mq.matches){ setCollapsed(false, false); return; }
+        const saved = JSON.parse(localStorage.getItem(COLLAPSE_KEY) || 'false');
+        userPinnedCollapsed = saved;
+        setCollapsed(saved, false);
+      }
+
+      collapseBtn?.addEventListener('click', ()=> {
+        const nowCollapsed = headerEl.classList.contains('collapsed');
+        const next = !nowCollapsed;
+        setCollapsed(next, true);       // حفظ الحالة اليدوية فقط
+        userPinnedCollapsed = next;     // تثبيت/إلغاء التثبيت
+      });
+
+      // Auto-Hide عند التمرير (موبايل فقط)
+      let lastY = window.scrollY;
+      let ticking = false;
+
+      function onScrollAutoHide(){
+        if (!mq.matches) return; // لا يعمل على الديسكتوب
+        const y = window.scrollY;
+        const delta = y - lastY;
+        lastY = y;
+
+        if (Math.abs(delta) < 8) return; // تجاهل الاهتزازات الصغيرة
+
+        if (y < 40){
+          if (!userPinnedCollapsed) setCollapsed(false, false);
+          return;
+        }
+
+        if (delta > 0){
+          // نزول: اطوِ
+          setCollapsed(true, false);
+        } else {
+          // طلوع: افتح إذا غير مثبّت مطوي
+          if (!userPinnedCollapsed) setCollapsed(false, false);
+        }
+      }
+
+      window.addEventListener('scroll', () => {
+        if (!ticking){
+          requestAnimationFrame(() => { onScrollAutoHide(); ticking = false; });
+          ticking = true;
+        }
+      }, { passive: true });
+
+      mq.addEventListener?.('change', () => { lastY = window.scrollY; applyForViewport(); });
+      applyForViewport();
+      /* ==================================================================== */
+
     })();
   </script>
 </body>
