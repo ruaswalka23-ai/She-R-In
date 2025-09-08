@@ -764,8 +764,6 @@
         const delta = y - lastY;
         lastY = y;
 
-        if (Math.abs(delta) < 8) return; // تجاهل الاهتزازات الصغيرة
-
         if (y < 40){
           if (!userPinnedCollapsed) setCollapsed(false, false);
           return;
